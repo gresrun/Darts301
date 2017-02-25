@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController {
 
     private static let gutterWidth: CGFloat = 4.0
+    private static let gutterHeight: CGFloat = 6.0
     private static let player1Color: UIColor = UIColor(red: 71 / 255, green: 154 / 255, blue: 212 / 255, alpha: 1.0)
     private static let player2Color: UIColor = UIColor(red: 249 / 255, green: 192 / 255, blue: 86 / 255, alpha: 1.0)
     
@@ -90,7 +91,7 @@ class ViewController: UIViewController {
         for row in 0...3 {
             for col in 0...4 {
                 let buttonView = keypadButton(at: CGRect(x: CGFloat(col) * (ViewController.gutterWidth + buttonWidth),
-                    y: CGFloat(row) * (ViewController.gutterWidth + buttonWidth), width: buttonWidth, height: buttonWidth), with: count)
+                    y: CGFloat(row) * (ViewController.gutterHeight + buttonWidth), width: buttonWidth, height: buttonWidth), with: count)
                 let multiplyRecogn: UILongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action:#selector(ViewController.keyLongPressed(_:)))
                 buttonView.addGestureRecognizer(multiplyRecogn)
                 keypadView.addSubview(buttonView)
@@ -100,31 +101,29 @@ class ViewController: UIViewController {
         let row: Int = 4
         var col: Int = 0
         let button25 = keypadButton(at: CGRect(x: CGFloat(col) * (ViewController.gutterWidth + buttonWidth),
-            y: CGFloat(row) * (ViewController.gutterWidth + buttonWidth), width: buttonWidth, height: buttonWidth), with: 25)
+            y: CGFloat(row) * (ViewController.gutterHeight + buttonWidth), width: buttonWidth, height: buttonWidth), with: 25)
         keypadView.addSubview(button25)
         col += 1
         let button50 = keypadButton(at: CGRect(x: CGFloat(col) * (ViewController.gutterWidth + buttonWidth),
-            y: CGFloat(row) * (ViewController.gutterWidth + buttonWidth), width: buttonWidth, height: buttonWidth), with: 50)
+            y: CGFloat(row) * (ViewController.gutterHeight + buttonWidth), width: buttonWidth, height: buttonWidth), with: 50)
         keypadView.addSubview(button50)
         col += 1
         let button0 = keypadButton(at: CGRect(x: CGFloat(col) * (ViewController.gutterWidth + buttonWidth),
-            y: CGFloat(row) * (ViewController.gutterWidth + buttonWidth), width: buttonWidth, height: buttonWidth), with: 0)
+            y: CGFloat(row) * (ViewController.gutterHeight + buttonWidth), width: buttonWidth, height: buttonWidth), with: 0)
         keypadView.addSubview(button0)
         col += 1
         deleteButton = keypadButton(at: CGRect(x: CGFloat(col) * (ViewController.gutterWidth + buttonWidth),
-            y: CGFloat(row) * (ViewController.gutterWidth + buttonWidth), width: buttonWidth * 2 + ViewController.gutterWidth, height: buttonWidth), with: -1)
+            y: CGFloat(row) * (ViewController.gutterHeight + buttonWidth), width: buttonWidth * 2 + ViewController.gutterWidth, height: buttonWidth), with: -1)
         deleteButton.setTitle("Back", for: .normal)
         keypadView.addSubview(deleteButton)
     }
 
     private func layoutMultiplierView(with button: UIButton) {
-        var doppelRect: CGRect = CGRect(origin: button.frame.origin, size: button.frame.size)
-        doppelRect.origin.x += keypadView.frame.origin.x
-        doppelRect.origin.y += keypadView.frame.origin.y
-        let doppelgangerKey : UIButton = multiplyerButtonKey(at: doppelRect, with: button.tag)
+        let doppelRect = multiplierView.convert(button.bounds, from: button)
+        let doppelgangerKey = multiplierButtonKey(at: doppelRect, with: button.tag)
 
-        var multiple2xRect: CGRect = CGRect(origin: doppelRect.origin, size: doppelRect.size)
-        var multiple3xRect: CGRect = CGRect(origin: doppelRect.origin, size: doppelRect.size)
+        var multiple2xRect = CGRect(origin: doppelRect.origin, size: doppelRect.size)
+        var multiple3xRect = CGRect(origin: doppelRect.origin, size: doppelRect.size)
         if button.tag % 5 != 0 || button.tag == 25 && button.tag == 50 {
             multiple2xRect.origin.y -= (doppelRect.size.height + 16.0)
             multiple3xRect.origin.y -= (doppelRect.size.height - 4.0)
@@ -135,8 +134,8 @@ class ViewController: UIViewController {
             multiple2xRect.origin.x -= (doppelRect.size.width + 4.0)
         }
 
-        let multiply2xKey : UIButton = multiplyer2xKey(at: multiple2xRect, with:200)
-        let multiply3xKey : UIButton = multiplyer3xKey(at: multiple3xRect, with:300)
+        let multiply2xKey = multiplierKey(at: multiple2xRect, with: 2)
+        let multiply3xKey = multiplierKey(at: multiple3xRect, with: 3)
 
         multiplierView.backgroundColor = UIColor(white: 1.0, alpha: 0.7)
         multiplierView.addSubview(doppelgangerKey)
@@ -150,6 +149,7 @@ class ViewController: UIViewController {
         buttonView.layer.borderWidth = 0.25
         buttonView.layer.borderColor = UIColor(red: 232 / 255, green: 232 / 255, blue: 232 / 255, alpha: 1.0).cgColor
         buttonView.backgroundColor = UIColor(red: 242 / 255, green: 242 / 255, blue: 242 / 255, alpha: 1.0)
+        buttonView.titleLabel?.font = UIFont.systemFont(ofSize: 30.0)
         buttonView.setTitle("\(value)", for: .normal)
         buttonView.setTitleColor(UIColor.darkText, for: .normal)
         buttonView.setTitleColor(colorForCurrentPlayer(), for: .highlighted)
@@ -158,33 +158,22 @@ class ViewController: UIViewController {
         return buttonView
     }
 
-    private func multiplyer2xKey(at frame: CGRect, with value: Int) -> UIButton {
-        let buttonView: UIButton = keypadButton(at:frame, with:value)
-        buttonView.backgroundColor = UIColor.blue
-        buttonView.setTitleColor(UIColor.white, for:UIControlState())
+    private func multiplierKey(at frame: CGRect, with value: Int) -> UIButton {
+        let buttonView: UIButton = UIButton(frame: frame)
+        buttonView.backgroundColor = colorForCurrentPlayer()
+        buttonView.setTitleColor(UIColor.white, for: .normal)
+        buttonView.titleLabel?.font = UIFont.systemFont(ofSize: 30.0)
         buttonView.layer.cornerRadius = 0.5 * buttonView.bounds.size.width
         buttonView.clipsToBounds = true
-        buttonView.setTitle("2x", for: .normal)
-        buttonView.removeTarget(self, action: #selector(keypadButtonPressed(_:)), for: .touchUpInside)
+        buttonView.setTitle("x\(value)", for: .normal)
         return buttonView
     }
 
-    private func multiplyer3xKey(at frame: CGRect, with value: Int) -> UIButton {
-        let buttonView: UIButton = keypadButton(at:frame, with:value)
-        buttonView.backgroundColor = UIColor.blue
-        buttonView.setTitleColor(UIColor.white, for:UIControlState())
-        buttonView.layer.cornerRadius = 0.5 * buttonView.bounds.size.width
-        buttonView.clipsToBounds = true
-        buttonView.setTitle("3x", for: .normal)
-        buttonView.removeTarget(self, action: #selector(keypadButtonPressed(_:)), for: .touchUpInside)
-        return buttonView
-    }
-
-    private func multiplyerButtonKey(at frame: CGRect, with value: Int) -> UIButton {
-        let buttonView: UIButton = keypadButton(at:frame, with:value)
+    private func multiplierButtonKey(at frame: CGRect, with value: Int) -> UIButton {
+        let buttonView: UIButton = keypadButton(at: frame, with: value)
         buttonView.backgroundColor = UIColor.white
-        buttonView.setTitleColor(UIColor.blue, for:UIControlState())
-        buttonView.removeTarget(self, action: #selector(keypadButtonPressed(_:)), for: .touchUpInside)
+        buttonView.setTitleColor(colorForCurrentPlayer(), for: .normal)
+        addShadow(to: buttonView)
         return buttonView
     }
 
@@ -324,6 +313,13 @@ class ViewController: UIViewController {
 
     @IBAction func confirmPressed(_ sender: UIButton) {
         setNextState(.finish)
+    }
+
+    func addShadow(to view: UIView) {
+        view.layer.masksToBounds = false
+        view.layer.shadowColor = UIColor(white: 0.7, alpha: 0.3).cgColor
+        view.layer.shadowOffset = CGSize(width: 2.0, height: 2.0)
+        view.layer.shadowOpacity = 0.1
     }
 }
 
