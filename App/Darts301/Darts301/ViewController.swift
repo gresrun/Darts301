@@ -79,6 +79,11 @@ class ViewController: UIViewController {
         }
         turnLabel.text = "\(currentPlayer!.name)'s Turn".uppercased()
         turnLabel.textColor = colorForCurrentPlayer()
+        for subview in keypadView.subviews {
+            if let buttonView = subview as? UIButton {
+                buttonView.setTitleColor(colorForCurrentPlayer(), for: .highlighted)
+            }
+        }
         dart1ScoreLabel.text = ""
         dart2ScoreLabel.text = ""
         dart3ScoreLabel.text = ""
