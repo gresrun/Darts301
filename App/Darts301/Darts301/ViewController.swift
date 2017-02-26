@@ -70,8 +70,13 @@ class ViewController: UIViewController {
 
     private func nextPlayer() {
         currentPlayer = (currentPlayer == player1) ? player2 : player1
-        player1ScoreBox.layer.shadowOffset = (player1 == currentPlayer) ? CGSize(width: 8, height: 8) : CGSize.zero
-        player2ScoreBox.layer.shadowOffset = (player2 == currentPlayer) ? CGSize(width: 8, height: 8) : CGSize.zero
+        if (player1 == currentPlayer) {
+            addShadow(to: player1ScoreBox)
+            player2ScoreBox.layer.shadowOpacity = 0.0
+        } else {
+            player1ScoreBox.layer.shadowOpacity = 0.0
+            addShadow(to: player2ScoreBox)
+        }
         turnLabel.text = "\(currentPlayer!.name)'s Turn".uppercased()
         dart1ScoreLabel.text = ""
         dart2ScoreLabel.text = ""
