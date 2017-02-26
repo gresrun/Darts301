@@ -242,18 +242,18 @@
                                 <rect key="frame" x="24" y="291" width="327" height="356"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap a dart score above to edit" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ve-bv-ymP" userLabel="Edit Help Text">
-                                        <rect key="frame" x="8" y="24" width="311" height="21"/>
+                                        <rect key="frame" x="8" y="8" width="311" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="dRi-Zh-U7a"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" red="0.74509803921568629" green="0.77254901960784317" blue="0.82352941176470584" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CqQ-R4-Aog" userLabel="Confirm Button">
-                                        <rect key="frame" x="0.0" y="53" width="327" height="303"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <state key="normal" title="Enter X score"/>
+                                        <rect key="frame" x="0.0" y="65" width="327" height="291"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <state key="normal" title="Enter X points"/>
                                         <connections>
                                             <action selector="confirmPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="A1h-8e-vg0"/>
                                         </connections>
@@ -261,11 +261,11 @@
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="CqQ-R4-Aog" firstAttribute="top" secondItem="7ve-bv-ymP" secondAttribute="bottom" constant="8" id="MNF-sT-Lrv"/>
+                                    <constraint firstItem="CqQ-R4-Aog" firstAttribute="top" secondItem="7ve-bv-ymP" secondAttribute="bottom" constant="36" id="MNF-sT-Lrv"/>
                                     <constraint firstAttribute="bottom" secondItem="CqQ-R4-Aog" secondAttribute="bottom" id="OJr-dl-Be7"/>
                                     <constraint firstAttribute="trailing" secondItem="CqQ-R4-Aog" secondAttribute="trailing" id="PMb-x8-IBJ"/>
                                     <constraint firstAttribute="trailing" secondItem="7ve-bv-ymP" secondAttribute="trailing" constant="8" id="Xdc-xO-hlu"/>
-                                    <constraint firstItem="7ve-bv-ymP" firstAttribute="top" secondItem="yUQ-vI-QX6" secondAttribute="top" constant="24" id="pTp-fZ-Yyj"/>
+                                    <constraint firstItem="7ve-bv-ymP" firstAttribute="top" secondItem="yUQ-vI-QX6" secondAttribute="top" constant="8" id="pTp-fZ-Yyj"/>
                                     <constraint firstItem="7ve-bv-ymP" firstAttribute="leading" secondItem="yUQ-vI-QX6" secondAttribute="leading" constant="8" id="qbJ-cd-FUr"/>
                                     <constraint firstItem="CqQ-R4-Aog" firstAttribute="leading" secondItem="yUQ-vI-QX6" secondAttribute="leading" id="wJL-mc-FUQ"/>
                                 </constraints>
@@ -326,7 +326,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="305" y="358"/>
+            <point key="canvasLocation" x="304.80000000000001" y="357.57121439280365"/>
         </scene>
     </scenes>
 </document>

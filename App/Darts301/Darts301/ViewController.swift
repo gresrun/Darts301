@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     private static let gutterHeight: CGFloat = 6.0
     private static let player1Color: UIColor = UIColor(red: 71 / 255, green: 154 / 255, blue: 212 / 255, alpha: 1.0)
     private static let player2Color: UIColor = UIColor(red: 249 / 255, green: 192 / 255, blue: 86 / 255, alpha: 1.0)
+    private static let multiplierAnimationDuration: TimeInterval = 0.2
     
     @IBOutlet weak var player1ScoreBox: UIView!
     @IBOutlet weak var player1ScoreNameLabel: UILabel!
@@ -39,9 +40,6 @@ class ViewController: UIViewController {
     private var currentPlayer: Player?
     private var roundScore: RoundScore = RoundScore(dart1: nil, dart2: nil, dart3: nil)
     private var state: State = State.inputDart(1)
-    private var dart1ScoreRecogn: UITapGestureRecognizer = UITapGestureRecognizer()
-    private var dart2ScoreRecogn: UITapGestureRecognizer = UITapGestureRecognizer()
-    private var dart3ScoreRecogn: UITapGestureRecognizer = UITapGestureRecognizer()
     private var deleteButton: UIButton = UIButton()
 
     override func viewDidLoad() {
@@ -54,13 +52,13 @@ class ViewController: UIViewController {
         player2ScoreValueLabel.text = "\(player2.score)"
         confirmButton.layer.cornerRadius = 4.0
 
-        //Tap gesture reconizers
-        dart1ScoreRecogn = UITapGestureRecognizer(target:self, action:#selector(ViewController.reviseDart(_:)))
-        dart2ScoreRecogn = UITapGestureRecognizer(target:self, action:#selector(ViewController.reviseDart(_:)))
-        dart3ScoreRecogn = UITapGestureRecognizer(target:self, action:#selector(ViewController.reviseDart(_:)))
-        dart1ScoreView.addGestureRecognizer(dart1ScoreRecogn)
-        dart2ScoreView.addGestureRecognizer(dart2ScoreRecogn)
-        dart3ScoreView.addGestureRecognizer(dart3ScoreRecogn)
+        // Tap gesture reconizers
+        dart1ScoreView.addGestureRecognizer(
+            UITapGestureRecognizer(target:self, action:#selector(ViewController.reviseDart(_:))))
+        dart2ScoreView.addGestureRecognizer(
+            UITapGestureRecognizer(target:self, action:#selector(ViewController.reviseDart(_:))))
+        dart3ScoreView.addGestureRecognizer(
+            UITapGestureRecognizer(target:self, action:#selector(ViewController.reviseDart(_:))))
 
         nextPlayer()
     }
@@ -92,8 +90,8 @@ class ViewController: UIViewController {
             for col in 0...4 {
                 let buttonView = keypadButton(at: CGRect(x: CGFloat(col) * (ViewController.gutterWidth + buttonWidth),
                     y: CGFloat(row) * (ViewController.gutterHeight + buttonWidth), width: buttonWidth, height: buttonWidth), with: count)
-                let multiplyRecogn: UILongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action:#selector(ViewController.keyLongPressed(_:)))
-                buttonView.addGestureRecognizer(multiplyRecogn)
+                buttonView.addGestureRecognizer(
+                    UILongPressGestureRecognizer(target: self, action:#selector(ViewController.keyLongPressed(_:))))
                 keypadView.addSubview(buttonView)
                 count += 1
             }
@@ -119,6 +117,7 @@ class ViewController: UIViewController {
     }
 
     private func layoutMultiplierView(with button: UIButton) {
+        multiplierView.subviews.forEach { (subview) in subview.removeFromSuperview() }
         let doppelRect = multiplierView.convert(button.bounds, from: button)
         let doppelgangerKey = multiplierButtonKey(at: doppelRect, with: button.tag)
 
@@ -166,6 +165,8 @@ class ViewController: UIViewController {
         buttonView.layer.cornerRadius = 0.5 * buttonView.bounds.size.width
         buttonView.clipsToBounds = true
         buttonView.setTitle("x\(value)", for: .normal)
+        buttonView.tag = value * 100;
+        addShadow(to: buttonView)
         return buttonView
     }
 
@@ -294,20 +295,43 @@ class ViewController: UIViewController {
     
     func reviseDart(_ sender: UITapGestureRecognizer) {
         if case .confirm = state {
-            if sender === dart1ScoreRecogn {
+            if sender.view === dart1ScoreView {
                 setNextState(State.reviseDart(1))
-            } else if sender === dart2ScoreRecogn {
+            } else if sender.view === dart2ScoreView {
                 setNextState(State.reviseDart(2))
-            } else if sender === dart3ScoreRecogn {
+            } else if sender.view === dart3ScoreView {
                 setNextState(State.reviseDart(3))
             }
         }
     }
 
     func keyLongPressed(_ sender: UILongPressGestureRecognizer) {
-        multiplierView.isHidden = false
         if let pressedKey = sender.view as? UIButton  {
-            layoutMultiplierView(with: pressedKey)
+            switch sender.state {
+            case .began:
+                layoutMultiplierView(with: pressedKey)
+                multiplierView.alpha = 0.0
+                multiplierView.isHidden = false
+                UIView.animate(withDuration: ViewController.multiplierAnimationDuration, animations: {
+                    self.multiplierView.alpha = 1.0
+                });
+            case .ended:
+                let touchPoint = sender.location(in: multiplierView)
+                let potentialView = multiplierView.subviews.first(where: { (subview) -> Bool in
+                    subview.tag > 100 && subview.frame.contains(touchPoint)
+                })
+                if let multiplierKey = potentialView {
+                    applyValue(pressedKey.tag * multiplierKey.tag / 100)
+                }
+                UIView.animate(withDuration: ViewController.multiplierAnimationDuration, animations: {
+                    self.multiplierView.alpha = 0.0
+                }, completion: { (complete) in
+                    self.multiplierView.isHidden = true
+                })
+            default:
+                // Do nothing
+                break
+            }
         }
     }
 
@@ -317,9 +341,9 @@ class ViewController: UIViewController {
 
     func addShadow(to view: UIView) {
         view.layer.masksToBounds = false
-        view.layer.shadowColor = UIColor(white: 0.7, alpha: 0.3).cgColor
+        view.layer.shadowColor = UIColor.black.cgColor
         view.layer.shadowOffset = CGSize(width: 2.0, height: 2.0)
-        view.layer.shadowOpacity = 0.1
+        view.layer.shadowOpacity = 0.2
     }
 }
 
