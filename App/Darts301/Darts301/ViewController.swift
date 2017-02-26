@@ -78,6 +78,7 @@ class ViewController: UIViewController {
             addShadow(to: player2ScoreBox)
         }
         turnLabel.text = "\(currentPlayer!.name)'s Turn".uppercased()
+        turnLabel.textColor = colorForCurrentPlayer()
         dart1ScoreLabel.text = ""
         dart2ScoreLabel.text = ""
         dart3ScoreLabel.text = ""
