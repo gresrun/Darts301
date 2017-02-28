@@ -194,11 +194,9 @@ class ViewController: UIViewController {
     }
     
     @objc private func keypadButtonPressed(_ sender: UIButton) {
-        if sender.tag == -1 { // Delete
-            print("DELETE")
+        if sender.tag == -1 {
             deletePressed()
-        } else { // Real value
-            print("\(sender.tag)")
+        } else {
             applyValue(sender.tag)
         }
     }
