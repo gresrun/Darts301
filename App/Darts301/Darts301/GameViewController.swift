@@ -33,8 +33,8 @@ class GameViewController: UIViewController {
     @IBOutlet weak var dart3ScoreView: UIView!
     @IBOutlet weak var multiplierView: UIView!
 
-    private let player1: Player = Player("Greg", playerNum: 1)
-    private let player2: Player = Player("Chris", playerNum: 2)
+    var player1: Player!
+    var player2: Player!
     private var currentPlayer: Player?
     private var roundScore: RoundScore = RoundScore(dart1: nil, dart2: nil, dart3: nil)
     private var state: State = State.inputDart(1)
