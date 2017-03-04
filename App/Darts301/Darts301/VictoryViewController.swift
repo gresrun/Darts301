@@ -44,9 +44,9 @@ class VictoryViewController : UIViewController {
             if pointSpread < 10 {
                 victoryMessageLabel.text = "That was a close one!\nBut \(winner.name) wins. Nice work!"
             } else if pointSpread < 75 {
-                victoryMessageLabel.text = "Good game, \(winner.name) wins!"
+                victoryMessageLabel.text = "Good game,\n\(winner.name) wins!"
             } else {
-                victoryMessageLabel.text = "\(winner.name) crushed it! Good win."
+                victoryMessageLabel.text = "\(winner.name) crushed it!\nGood win."
             }
         }
     }
