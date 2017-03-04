@@ -141,6 +141,7 @@
 				TargetAttributes = {
 					FB8A88AA1E5A7FC9003A5982 = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = YWTRJSAU5K;
 						LastSwiftMigration = 0820;
 					};
 				};
@@ -355,6 +356,7 @@
 			baseConfigurationReference = 1648EAB185BA95C6E19F1AB7 /* Pods-Darts301.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = YWTRJSAU5K;
 				INFOPLIST_FILE = Darts301/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.alyweir.Darts301;
@@ -368,6 +370,7 @@
 			baseConfigurationReference = 7332C939ED62B600B481998B /* Pods-Darts301.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = YWTRJSAU5K;
 				INFOPLIST_FILE = Darts301/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.alyweir.Darts301;

@@ -48,4 +48,8 @@ class VictoryViewController : UIViewController {
             victoryMessageLabel.text = "\(winner.name) crushed it!\nGood win."
         }
     }
+
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
 }

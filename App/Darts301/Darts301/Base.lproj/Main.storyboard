@@ -23,13 +23,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IZ0-rt-yfH" userLabel="Celebrate Image">
-                                <rect key="frame" x="46" y="90" width="283" height="184"/>
+                                <rect key="frame" x="46" y="80" width="283" height="184"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="184" id="CHP-vB-hLK"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JL9-ca-wF4" userLabel="Victory Message Label">
-                                <rect key="frame" x="46" y="328" width="283" height="139"/>
+                                <rect key="frame" x="46" y="318" width="283" height="175"/>
                                 <string key="text">Good game,
 Aly wins!</string>
                                 <fontDescription key="fontDescription" name=".SFNSDisplay" family=".SF NS Display" pointSize="26"/>
@@ -37,7 +37,7 @@ Aly wins!</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ymC-KK-Qu7" userLabel="Play Again Button">
-                                <rect key="frame" x="46" y="521" width="283" height="76"/>
+                                <rect key="frame" x="46" y="547" width="283" height="76"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="76" id="NtF-we-NgV"/>
@@ -57,14 +57,15 @@ Aly wins!</string>
                             <constraint firstItem="IZ0-rt-yfH" firstAttribute="leading" secondItem="2Vn-w1-neI" secondAttribute="leadingMargin" constant="30" id="BDD-ab-YHQ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ymC-KK-Qu7" secondAttribute="trailing" constant="30" id="Jpi-qo-WAq"/>
                             <constraint firstItem="JL9-ca-wF4" firstAttribute="leading" secondItem="2Vn-w1-neI" secondAttribute="leadingMargin" constant="30" id="MCM-Nq-EmQ"/>
-                            <constraint firstItem="Iae-d6-ecn" firstAttribute="top" secondItem="ymC-KK-Qu7" secondAttribute="bottom" constant="70" id="Piu-u1-3pv"/>
+                            <constraint firstItem="Iae-d6-ecn" firstAttribute="top" secondItem="ymC-KK-Qu7" secondAttribute="bottom" constant="44" id="Piu-u1-3pv"/>
                             <constraint firstItem="ymC-KK-Qu7" firstAttribute="top" secondItem="JL9-ca-wF4" secondAttribute="bottom" constant="54" id="S2g-iD-x3a"/>
                             <constraint firstItem="ymC-KK-Qu7" firstAttribute="leading" secondItem="2Vn-w1-neI" secondAttribute="leadingMargin" constant="30" id="amE-DB-yEG"/>
                             <constraint firstItem="JL9-ca-wF4" firstAttribute="top" secondItem="IZ0-rt-yfH" secondAttribute="bottom" constant="54" id="nbB-rs-b0Y"/>
-                            <constraint firstItem="IZ0-rt-yfH" firstAttribute="top" secondItem="Lku-xk-dlv" secondAttribute="bottom" constant="70" id="qtF-37-GNm"/>
+                            <constraint firstItem="IZ0-rt-yfH" firstAttribute="top" secondItem="Lku-xk-dlv" secondAttribute="bottom" constant="60" id="qtF-37-GNm"/>
                             <constraint firstAttribute="trailingMargin" secondItem="JL9-ca-wF4" secondAttribute="trailing" constant="30" id="xgH-gc-Ul6"/>
                         </constraints>
                     </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="celebrateImageView" destination="IZ0-rt-yfH" id="Igp-vM-nQD"/>
                         <outlet property="celebrateImageViewHeight" destination="CHP-vB-hLK" id="wz0-0k-pIe"/>
@@ -115,7 +116,7 @@ Aly wins!</string>
                                     <constraint firstAttribute="height" constant="76" id="tUQ-GV-MC4"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                <state key="normal" title="Start">
+                                <state key="normal" title="Start new game">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -137,6 +138,7 @@ Aly wins!</string>
                             <constraint firstItem="ykM-69-te3" firstAttribute="trailing" secondItem="IPc-gA-UGK" secondAttribute="trailingMargin" id="uxY-Uz-Gju"/>
                         </constraints>
                     </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="rulesButton" destination="V5g-aj-EYK" id="vbP-yJ-VCo"/>
                         <outlet property="startButton" destination="paM-6f-keB" id="Q5u-AX-UPV"/>
@@ -265,6 +267,7 @@ Aly wins!</string>
                             <constraint firstAttribute="trailingMargin" secondItem="0mo-rQ-7Da" secondAttribute="trailing" constant="30" id="taq-DU-hiR"/>
                         </constraints>
                     </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="player1NameField" destination="kqo-2K-g4c" id="Hu4-WJ-GW6"/>
                         <outlet property="player2NameField" destination="Xd8-9g-o5a" id="YD6-QK-Y1J"/>
@@ -569,6 +572,7 @@ Aly wins!</string>
                             <constraint firstItem="Q77-zY-ERX" firstAttribute="top" secondItem="K3I-W9-6gM" secondAttribute="bottom" constant="28" id="zqP-cN-EMm"/>
                         </constraints>
                     </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="confirmButton" destination="CqQ-R4-Aog" id="0MC-u0-3Nr"/>
                         <outlet property="confirmButtonView" destination="yUQ-vI-QX6" id="qdR-ZW-brd"/>

@@ -30,4 +30,8 @@ class WelcomeViewController : UIViewController {
         ]
         view.layer.insertSublayer(gradientLayer, at: 0)
     }
+
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
 }
