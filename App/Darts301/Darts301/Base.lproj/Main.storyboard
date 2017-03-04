@@ -13,7 +13,7 @@
         <!--Victory View Controller-->
         <scene sceneID="pS5-nU-zeJ">
             <objects>
-                <viewController storyboardIdentifier="victoryVC" id="XWJ-IU-UQh" customClass="VictoryViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="victoryVC" id="XWJ-IU-UQh" customClass="VictoryViewController" customModule="Darts301" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Lku-xk-dlv"/>
                         <viewControllerLayoutGuide type="bottom" id="Iae-d6-ecn"/>
@@ -21,12 +21,57 @@
                     <view key="view" contentMode="scaleToFill" id="2Vn-w1-neI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IZ0-rt-yfH" userLabel="Celebrate Image">
+                                <rect key="frame" x="46" y="90" width="283" height="184"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="184" id="CHP-vB-hLK"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ymC-KK-Qu7" userLabel="Play Again Button">
+                                <rect key="frame" x="46" y="521" width="283" height="76"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="76" id="NtF-we-NgV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <state key="normal" title="Play again">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JL9-ca-wF4" userLabel="Victory Message Label">
+                                <rect key="frame" x="46" y="328" width="283" height="139"/>
+                                <string key="text">Good game,
+Aly wins!</string>
+                                <fontDescription key="fontDescription" name=".SFNSDisplay" family=".SF NS Display" pointSize="26"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="IZ0-rt-yfH" secondAttribute="trailing" constant="30" id="3hm-7Z-CPo"/>
+                            <constraint firstItem="IZ0-rt-yfH" firstAttribute="leading" secondItem="2Vn-w1-neI" secondAttribute="leadingMargin" constant="30" id="BDD-ab-YHQ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ymC-KK-Qu7" secondAttribute="trailing" constant="30" id="Jpi-qo-WAq"/>
+                            <constraint firstItem="JL9-ca-wF4" firstAttribute="leading" secondItem="2Vn-w1-neI" secondAttribute="leadingMargin" constant="30" id="MCM-Nq-EmQ"/>
+                            <constraint firstItem="Iae-d6-ecn" firstAttribute="top" secondItem="ymC-KK-Qu7" secondAttribute="bottom" constant="70" id="Piu-u1-3pv"/>
+                            <constraint firstItem="ymC-KK-Qu7" firstAttribute="top" secondItem="JL9-ca-wF4" secondAttribute="bottom" constant="54" id="S2g-iD-x3a"/>
+                            <constraint firstItem="ymC-KK-Qu7" firstAttribute="leading" secondItem="2Vn-w1-neI" secondAttribute="leadingMargin" constant="30" id="amE-DB-yEG"/>
+                            <constraint firstItem="JL9-ca-wF4" firstAttribute="top" secondItem="IZ0-rt-yfH" secondAttribute="bottom" constant="54" id="nbB-rs-b0Y"/>
+                            <constraint firstItem="IZ0-rt-yfH" firstAttribute="top" secondItem="Lku-xk-dlv" secondAttribute="bottom" constant="70" id="qtF-37-GNm"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="JL9-ca-wF4" secondAttribute="trailing" constant="30" id="xgH-gc-Ul6"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="celebrateImageView" destination="IZ0-rt-yfH" id="Igp-vM-nQD"/>
+                        <outlet property="celebrateImageViewHeight" destination="CHP-vB-hLK" id="wz0-0k-pIe"/>
+                        <outlet property="playAgainButton" destination="ymC-KK-Qu7" id="aSK-g6-fD6"/>
+                        <outlet property="victoryMessageLabel" destination="JL9-ca-wF4" id="HQt-v8-Gfx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FaU-Qb-Lki" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="877" y="358"/>
+            <point key="canvasLocation" x="1151" y="358"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="tne-QT-ifu">

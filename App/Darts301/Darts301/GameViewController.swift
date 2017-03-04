@@ -12,8 +12,6 @@ class GameViewController: UIViewController {
 
     private static let gutterWidth: CGFloat = 4.0
     private static let gutterHeight: CGFloat = 6.0
-    private static let player1Color: UIColor = UIColor(red: 71 / 255, green: 154 / 255, blue: 212 / 255, alpha: 1.0)
-    private static let player2Color: UIColor = UIColor(red: 249 / 255, green: 192 / 255, blue: 86 / 255, alpha: 1.0)
     private static let multiplierAnimationDuration: TimeInterval = 0.2
     
     @IBOutlet weak var player1ScoreBox: UIView!
@@ -68,14 +66,21 @@ class GameViewController: UIViewController {
         createButtonGrid()
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == Segues.victory, let victoryVC = segue.destination as? VictoryViewController {
+            victoryVC.winner = currentPlayer
+            victoryVC.pointSpread = (player1 == currentPlayer) ? player2.score : player1.score
+        }
+    }
+
     private func nextPlayer() {
         currentPlayer = (currentPlayer == player1) ? player2 : player1
         if (player1 == currentPlayer) {
-            addShadow(to: player1ScoreBox)
+            Utils.addShadow(to: player1ScoreBox)
             player2ScoreBox.layer.shadowOpacity = 0.0
         } else {
             player1ScoreBox.layer.shadowOpacity = 0.0
-            addShadow(to: player2ScoreBox)
+            Utils.addShadow(to: player2ScoreBox)
         }
         turnLabel.text = "\(currentPlayer!.name)'s Turn".uppercased()
         turnLabel.textColor = colorForCurrentPlayer()
@@ -177,7 +182,7 @@ class GameViewController: UIViewController {
         buttonView.clipsToBounds = true
         buttonView.setTitle("x\(value)", for: .normal)
         buttonView.tag = value * 100;
-        addShadow(to: buttonView)
+        Utils.addShadow(to: buttonView)
         return buttonView
     }
 
@@ -185,12 +190,12 @@ class GameViewController: UIViewController {
         let buttonView: UIButton = keypadButton(at: frame, with: value)
         buttonView.backgroundColor = UIColor.white
         buttonView.setTitleColor(colorForCurrentPlayer(), for: .normal)
-        addShadow(to: buttonView)
+        Utils.addShadow(to: buttonView)
         return buttonView
     }
 
     private func colorForCurrentPlayer() -> UIColor {
-        return (currentPlayer == player1) ? GameViewController.player1Color : GameViewController.player2Color
+        return (currentPlayer == player1) ? Colors.player1Color : Colors.player2Color
     }
     
     @objc private func keypadButtonPressed(_ sender: UIButton) {
@@ -275,10 +280,14 @@ class GameViewController: UIViewController {
             currentPlayer?.adjustScore(by: sum)
             let label = (currentPlayer == player1) ? player1ScoreValueLabel : player2ScoreValueLabel
             label?.text = "\(currentPlayer!.score)"
-            nextPlayer()
-            keypadView.isHidden = false
-            confirmButtonView.isHidden = true
-            setNextState(.inputDart(1))
+            if currentPlayer?.score == 0 {
+                performSegue(withIdentifier: Segues.victory, sender: self)
+            } else {
+                nextPlayer()
+                keypadView.isHidden = false
+                confirmButtonView.isHidden = true
+                setNextState(.inputDart(1))
+            }
         case .inputDart(1), .inputDart(2), .inputDart(3):
             deleteButton.setTitle("Back", for: .normal)
         case .reviseDart(1):
@@ -346,13 +355,6 @@ class GameViewController: UIViewController {
 
     @IBAction func confirmPressed(_ sender: UIButton) {
         setNextState(.finish)
-    }
-
-    func addShadow(to view: UIView) {
-        view.layer.masksToBounds = false
-        view.layer.shadowColor = UIColor.black.cgColor
-        view.layer.shadowOffset = CGSize(width: 2.0, height: 2.0)
-        view.layer.shadowOpacity = 0.2
     }
 }
 
