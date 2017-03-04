@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="3vR-zN-DIB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="FsM-dI-0TV">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -76,6 +76,76 @@ Aly wins!</string>
             </objects>
             <point key="canvasLocation" x="1151" y="358"/>
         </scene>
+        <!--Welcome View Controller-->
+        <scene sceneID="dal-3P-2wg">
+            <objects>
+                <viewController storyboardIdentifier="welcomeVC" id="FsM-dI-0TV" customClass="WelcomeViewController" customModule="Darts301" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0EE-iJ-Ihb"/>
+                        <viewControllerLayoutGuide type="bottom" id="RLc-Xm-T9W"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="IPc-gA-UGK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="301" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ykM-69-te3">
+                                <rect key="frame" x="16" y="164" width="343" height="88"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="88" id="Gqy-hm-awh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="80"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V5g-aj-EYK" userLabel="Rules Button">
+                                <rect key="frame" x="46" y="459" width="283" height="76"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="76" id="tv0-UB-C3P"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <state key="normal" title="Rules">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="paM-6f-keB" userLabel="Start Button">
+                                <rect key="frame" x="46" y="547" width="283" height="76"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="76" id="tUQ-GV-MC4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <state key="normal" title="Start">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="3vR-zN-DIB" kind="showDetail" identifier="enterPlayers" action="showViewController:sender:" id="GhL-NU-o8J"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="paM-6f-keB" secondAttribute="trailing" constant="30" id="Dtk-8d-KtF"/>
+                            <constraint firstItem="RLc-Xm-T9W" firstAttribute="top" secondItem="paM-6f-keB" secondAttribute="bottom" constant="44" id="DvP-32-NWZ"/>
+                            <constraint firstItem="paM-6f-keB" firstAttribute="leading" secondItem="IPc-gA-UGK" secondAttribute="leadingMargin" constant="30" id="GH9-JB-Y22"/>
+                            <constraint firstItem="V5g-aj-EYK" firstAttribute="leading" secondItem="IPc-gA-UGK" secondAttribute="leadingMargin" constant="30" id="H6l-R1-5kH"/>
+                            <constraint firstItem="ykM-69-te3" firstAttribute="leading" secondItem="IPc-gA-UGK" secondAttribute="leadingMargin" id="Osy-1k-F4A"/>
+                            <constraint firstItem="paM-6f-keB" firstAttribute="top" secondItem="V5g-aj-EYK" secondAttribute="bottom" constant="12" id="fMX-vU-y3t"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="V5g-aj-EYK" secondAttribute="trailing" constant="30" id="g2b-XY-hlR"/>
+                            <constraint firstItem="paM-6f-keB" firstAttribute="top" secondItem="V5g-aj-EYK" secondAttribute="bottom" constant="12" id="p3b-Ba-OCM"/>
+                            <constraint firstItem="ykM-69-te3" firstAttribute="top" secondItem="0EE-iJ-Ihb" secondAttribute="bottom" constant="144" id="rja-AG-7HG"/>
+                            <constraint firstItem="ykM-69-te3" firstAttribute="trailing" secondItem="IPc-gA-UGK" secondAttribute="trailingMargin" id="uxY-Uz-Gju"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="rulesButton" destination="V5g-aj-EYK" id="vbP-yJ-VCo"/>
+                        <outlet property="startButton" destination="paM-6f-keB" id="Q5u-AX-UPV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k7Q-ht-gOM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1386.4000000000001" y="357.57121439280365"/>
+        </scene>
         <!--Whos Playing View Controller-->
         <scene sceneID="S3F-fU-uv5">
             <objects>
@@ -128,7 +198,7 @@ Aly wins!</string>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HDm-CO-YOK" userLabel="Play Again Button">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HDm-CO-YOK" userLabel="Skip Button">
                                 <rect key="frame" x="46" y="459" width="283" height="76"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -142,7 +212,7 @@ Aly wins!</string>
                                     <segue destination="BYZ-38-t0r" kind="showDetail" identifier="startGameSkipNames" action="showViewController:sender:" id="CQK-qb-1EG"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sXz-Xt-Vi5" userLabel="Play Again Button">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sXz-Xt-Vi5" userLabel="Start Button">
                                 <rect key="frame" x="46" y="547" width="283" height="76"/>
                                 <color key="backgroundColor" red="0.27988281250000002" green="0.59852120535714282" blue="0.83434709821428577" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -528,5 +598,6 @@ Aly wins!</string>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="G3Q-Bi-reY"/>
+        <segue reference="GhL-NU-o8J"/>
     </inferredMetricsTieBreakers>
 </document>
