@@ -1,0 +1,7 @@
+platform :ios, '9.0'
+
+target 'Darts301' do
+  use_frameworks!
+  # Pods for Darts301
+  pod 'Alamofire', '~> 4.4'
+end

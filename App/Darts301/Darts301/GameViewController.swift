@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  GameViewController.swift
 //  Darts301
 //
 //  Created by Aly & Friends on 2/19/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class GameViewController: UIViewController {
 
     private static let gutterWidth: CGFloat = 4.0
     private static let gutterHeight: CGFloat = 6.0
