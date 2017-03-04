@@ -54,11 +54,11 @@ class GameViewController: UIViewController {
 
         // Tap gesture reconizers
         dart1ScoreView.addGestureRecognizer(
-            UITapGestureRecognizer(target:self, action:#selector(ViewController.reviseDart(_:))))
+            UITapGestureRecognizer(target:self, action:#selector(GameViewController.reviseDart(_:))))
         dart2ScoreView.addGestureRecognizer(
-            UITapGestureRecognizer(target:self, action:#selector(ViewController.reviseDart(_:))))
+            UITapGestureRecognizer(target:self, action:#selector(GameViewController.reviseDart(_:))))
         dart3ScoreView.addGestureRecognizer(
-            UITapGestureRecognizer(target:self, action:#selector(ViewController.reviseDart(_:))))
+            UITapGestureRecognizer(target:self, action:#selector(GameViewController.reviseDart(_:))))
 
         nextPlayer()
     }
@@ -95,34 +95,34 @@ class GameViewController: UIViewController {
     }
 
     private func createButtonGrid() {
-        let buttonWidth: CGFloat = (keypadView.bounds.width - (ViewController.gutterWidth * 4)) / 5.0
+        let buttonWidth: CGFloat = (keypadView.bounds.width - (GameViewController.gutterWidth * 4)) / 5.0
         var count: Int = 1
         for row in 0...3 {
             for col in 0...4 {
-                let buttonView = keypadButton(at: CGRect(x: CGFloat(col) * (ViewController.gutterWidth + buttonWidth),
-                    y: CGFloat(row) * (ViewController.gutterHeight + buttonWidth), width: buttonWidth, height: buttonWidth), with: count)
+                let buttonView = keypadButton(at: CGRect(x: CGFloat(col) * (GameViewController.gutterWidth + buttonWidth),
+                    y: CGFloat(row) * (GameViewController.gutterHeight + buttonWidth), width: buttonWidth, height: buttonWidth), with: count)
                 buttonView.addGestureRecognizer(
-                    UILongPressGestureRecognizer(target: self, action:#selector(ViewController.keyLongPressed(_:))))
+                    UILongPressGestureRecognizer(target: self, action:#selector(GameViewController.keyLongPressed(_:))))
                 keypadView.addSubview(buttonView)
                 count += 1
             }
         }
         let row: Int = 4
         var col: Int = 0
-        let button25 = keypadButton(at: CGRect(x: CGFloat(col) * (ViewController.gutterWidth + buttonWidth),
-            y: CGFloat(row) * (ViewController.gutterHeight + buttonWidth), width: buttonWidth, height: buttonWidth), with: 25)
+        let button25 = keypadButton(at: CGRect(x: CGFloat(col) * (GameViewController.gutterWidth + buttonWidth),
+            y: CGFloat(row) * (GameViewController.gutterHeight + buttonWidth), width: buttonWidth, height: buttonWidth), with: 25)
         keypadView.addSubview(button25)
         col += 1
-        let button50 = keypadButton(at: CGRect(x: CGFloat(col) * (ViewController.gutterWidth + buttonWidth),
-            y: CGFloat(row) * (ViewController.gutterHeight + buttonWidth), width: buttonWidth, height: buttonWidth), with: 50)
+        let button50 = keypadButton(at: CGRect(x: CGFloat(col) * (GameViewController.gutterWidth + buttonWidth),
+            y: CGFloat(row) * (GameViewController.gutterHeight + buttonWidth), width: buttonWidth, height: buttonWidth), with: 50)
         keypadView.addSubview(button50)
         col += 1
-        let button0 = keypadButton(at: CGRect(x: CGFloat(col) * (ViewController.gutterWidth + buttonWidth),
-            y: CGFloat(row) * (ViewController.gutterHeight + buttonWidth), width: buttonWidth, height: buttonWidth), with: 0)
+        let button0 = keypadButton(at: CGRect(x: CGFloat(col) * (GameViewController.gutterWidth + buttonWidth),
+            y: CGFloat(row) * (GameViewController.gutterHeight + buttonWidth), width: buttonWidth, height: buttonWidth), with: 0)
         keypadView.addSubview(button0)
         col += 1
-        deleteButton = keypadButton(at: CGRect(x: CGFloat(col) * (ViewController.gutterWidth + buttonWidth),
-            y: CGFloat(row) * (ViewController.gutterHeight + buttonWidth), width: buttonWidth * 2 + ViewController.gutterWidth, height: buttonWidth), with: -1)
+        deleteButton = keypadButton(at: CGRect(x: CGFloat(col) * (GameViewController.gutterWidth + buttonWidth),
+            y: CGFloat(row) * (GameViewController.gutterHeight + buttonWidth), width: buttonWidth * 2 + GameViewController.gutterWidth, height: buttonWidth), with: -1)
         deleteButton.setTitle("Back", for: .normal)
         keypadView.addSubview(deleteButton)
     }
@@ -190,7 +190,7 @@ class GameViewController: UIViewController {
     }
 
     private func colorForCurrentPlayer() -> UIColor {
-        return (currentPlayer == player1) ? ViewController.player1Color : ViewController.player2Color
+        return (currentPlayer == player1) ? GameViewController.player1Color : GameViewController.player2Color
     }
     
     @objc private func keypadButtonPressed(_ sender: UIButton) {
@@ -321,7 +321,7 @@ class GameViewController: UIViewController {
                 layoutMultiplierView(with: pressedKey)
                 multiplierView.alpha = 0.0
                 multiplierView.isHidden = false
-                UIView.animate(withDuration: ViewController.multiplierAnimationDuration, animations: {
+                UIView.animate(withDuration: GameViewController.multiplierAnimationDuration, animations: {
                     self.multiplierView.alpha = 1.0
                 });
             case .ended:
@@ -332,7 +332,7 @@ class GameViewController: UIViewController {
                 if let multiplierKey = potentialView {
                     applyValue(pressedKey.tag * multiplierKey.tag / 100)
                 }
-                UIView.animate(withDuration: ViewController.multiplierAnimationDuration, animations: {
+                UIView.animate(withDuration: GameViewController.multiplierAnimationDuration, animations: {
                     self.multiplierView.alpha = 0.0
                 }, completion: { (complete) in
                     self.multiplierView.isHidden = true
