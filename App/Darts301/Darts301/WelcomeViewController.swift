@@ -20,6 +20,7 @@ class WelcomeViewController : UIViewController {
         rulesButton.layer.cornerRadius = 8.0
         rulesButton.layer.borderColor = UIColor.white.cgColor
         rulesButton.layer.borderWidth = 2.0
+        Utils.addShadow(to: startButton)
 
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = view.bounds

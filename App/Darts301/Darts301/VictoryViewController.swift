@@ -39,6 +39,7 @@ class VictoryViewController : UIViewController {
         }
         Utils.addShadow(to: celebrateImageView)
         playAgainButton.layer.cornerRadius = 8.0
+        Utils.addShadow(to: playAgainButton)
         view.backgroundColor = (winner.playerNum == 1) ? Colors.player1Color : Colors.player2Color
         if pointSpread < 10 {
             victoryMessageLabel.text = "That was a close one!\nBut \(winner.name) wins. Nice work!"

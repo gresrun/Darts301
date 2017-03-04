@@ -21,6 +21,7 @@ class WhosPlayingViewController : UIViewController, UITextFieldDelegate {
         skipButton.layer.cornerRadius = 8.0
         skipButton.layer.borderColor = Colors.player1Color.cgColor
         skipButton.layer.borderWidth = 2.0
+        Utils.addShadow(to: startButton)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
