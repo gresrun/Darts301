@@ -160,7 +160,7 @@ Aly wins!</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Who's Playing?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fDb-V4-142">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Who's playing?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fDb-V4-142">
                                 <rect key="frame" x="16" y="80" width="343" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="g7P-NT-G3n"/>
@@ -178,7 +178,7 @@ Aly wins!</string>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kqo-2K-g4c" userLabel="Player One Field">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kqo-2K-g4c" userLabel="Player One Field">
                                 <rect key="frame" x="46" y="220" width="283" height="64"/>
                                 <color key="backgroundColor" red="0.9882352941176471" green="0.98760613620448168" blue="0.98760613620448168" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -228,7 +228,7 @@ Aly wins!</string>
                                     <segue destination="BYZ-38-t0r" kind="showDetail" identifier="startGame" action="showViewController:sender:" id="G3Q-Bi-reY"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xd8-9g-o5a" userLabel="Player Two Field">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xd8-9g-o5a" userLabel="Player Two Field">
                                 <rect key="frame" x="46" y="356" width="283" height="64"/>
                                 <color key="backgroundColor" red="0.98823529409999999" green="0.98760613620000004" blue="0.98760613620000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
