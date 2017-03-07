@@ -1,15 +1,28 @@
 PODS:
   - Alamofire (4.4.0)
+  - SwiftValidator (4.0.0)
   - UIImage+animatedGif (0.1.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.4)
+  - SwiftValidator (from `https://github.com/jpotts18/SwiftValidator.git`, branch `master`)
   - UIImage+animatedGif (~> 0.1)
+
+EXTERNAL SOURCES:
+  SwiftValidator:
+    :branch: master
+    :git: https://github.com/jpotts18/SwiftValidator.git
+
+CHECKOUT OPTIONS:
+  SwiftValidator:
+    :commit: 2a6c23ad9efd76127f6109445515cb9780e5ad92
+    :git: https://github.com/jpotts18/SwiftValidator.git
 
 SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
+  SwiftValidator: 25ded5ca1f10c05adf57f6ac82a72d28ac8d91af
   UIImage+animatedGif: 21cff7203edfb45ca0dd035505a4988cc0156356
 
-PODFILE CHECKSUM: 8a8359379efd386bf1da9f8bae7d43819fa2f44c
+PODFILE CHECKSUM: 3ba2c53badf10993a2e70475d7c99d0a8514efe7
 
 COCOAPODS: 1.2.0

@@ -4,5 +4,6 @@ target 'Darts301' do
   use_frameworks!
   # Pods for Darts301
   pod 'Alamofire', '~> 4.4'
+  pod 'SwiftValidator', :git => 'https://github.com/jpotts18/SwiftValidator.git', :branch => 'master'
   pod 'UIImage+animatedGif', '~> 0.1'
 end
