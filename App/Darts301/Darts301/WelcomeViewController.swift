@@ -26,7 +26,8 @@ class WelcomeViewController : UIViewController {
         gradientLayer.frame = view.bounds
         gradientLayer.colors = [
             Colors.player1Color.cgColor,
-            UIColor(red:0.498, green:0.710, blue:0.702, alpha: 1).cgColor,
+            UIColor(red:0.451, green:0.686, blue:0.729, alpha: 1).cgColor,
+            UIColor(red:0.659, green:0.784, blue:0.608, alpha: 1).cgColor,
             Colors.player2Color.cgColor
         ]
         view.layer.insertSublayer(gradientLayer, at: 0)
