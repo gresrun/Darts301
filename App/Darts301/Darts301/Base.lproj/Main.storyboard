@@ -22,20 +22,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IZ0-rt-yfH" userLabel="Celebrate Image">
-                                <rect key="frame" x="46" y="80" width="283" height="184"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8sz-Zr-gFt">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="363"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IZ0-rt-yfH" userLabel="Celebrate Image">
+                                        <rect key="frame" x="40" y="89.5" width="295" height="184"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="184" id="CHP-vB-hLK"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="184" id="CHP-vB-hLK"/>
+                                    <constraint firstItem="IZ0-rt-yfH" firstAttribute="centerY" secondItem="8sz-Zr-gFt" secondAttribute="centerY" id="J3F-iN-ZUL"/>
+                                    <constraint firstItem="IZ0-rt-yfH" firstAttribute="leading" secondItem="8sz-Zr-gFt" secondAttribute="leading" constant="40" id="JfN-hc-fnM"/>
+                                    <constraint firstAttribute="trailing" secondItem="IZ0-rt-yfH" secondAttribute="trailing" constant="40" id="Vc5-hy-lSy"/>
                                 </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JL9-ca-wF4" userLabel="Victory Message Label">
-                                <rect key="frame" x="46" y="318" width="283" height="175"/>
-                                <string key="text">Good game,
-Aly wins!</string>
-                                <fontDescription key="fontDescription" name=".SFNSDisplay" family=".SF NS Display" pointSize="26"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ymC-KK-Qu7" userLabel="Play Again Button">
                                 <rect key="frame" x="46" y="547" width="283" height="76"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -50,18 +53,29 @@ Aly wins!</string>
                                     <segue destination="3vR-zN-DIB" kind="show" identifier="playAgain" id="UMx-00-lpU"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JL9-ca-wF4" userLabel="Victory Message Label">
+                                <rect key="frame" x="46" y="379" width="283" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="fVK-8x-iDD"/>
+                                </constraints>
+                                <string key="text">Good game,
+Aly wins!</string>
+                                <fontDescription key="fontDescription" name=".SFNSDisplay" family=".SF NS Display" pointSize="26"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="IZ0-rt-yfH" secondAttribute="trailing" constant="30" id="3hm-7Z-CPo"/>
-                            <constraint firstItem="IZ0-rt-yfH" firstAttribute="leading" secondItem="2Vn-w1-neI" secondAttribute="leadingMargin" constant="30" id="BDD-ab-YHQ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ymC-KK-Qu7" secondAttribute="trailing" constant="30" id="Jpi-qo-WAq"/>
                             <constraint firstItem="JL9-ca-wF4" firstAttribute="leading" secondItem="2Vn-w1-neI" secondAttribute="leadingMargin" constant="30" id="MCM-Nq-EmQ"/>
                             <constraint firstItem="Iae-d6-ecn" firstAttribute="top" secondItem="ymC-KK-Qu7" secondAttribute="bottom" constant="44" id="Piu-u1-3pv"/>
-                            <constraint firstItem="ymC-KK-Qu7" firstAttribute="top" secondItem="JL9-ca-wF4" secondAttribute="bottom" constant="54" id="S2g-iD-x3a"/>
+                            <constraint firstItem="ymC-KK-Qu7" firstAttribute="top" secondItem="JL9-ca-wF4" secondAttribute="bottom" constant="48" id="S2g-iD-x3a"/>
+                            <constraint firstAttribute="trailing" secondItem="8sz-Zr-gFt" secondAttribute="trailing" id="XdP-GU-axM"/>
+                            <constraint firstItem="JL9-ca-wF4" firstAttribute="top" secondItem="8sz-Zr-gFt" secondAttribute="bottom" constant="16" id="afe-8H-t4O"/>
                             <constraint firstItem="ymC-KK-Qu7" firstAttribute="leading" secondItem="2Vn-w1-neI" secondAttribute="leadingMargin" constant="30" id="amE-DB-yEG"/>
-                            <constraint firstItem="JL9-ca-wF4" firstAttribute="top" secondItem="IZ0-rt-yfH" secondAttribute="bottom" constant="54" id="nbB-rs-b0Y"/>
-                            <constraint firstItem="IZ0-rt-yfH" firstAttribute="top" secondItem="Lku-xk-dlv" secondAttribute="bottom" constant="60" id="qtF-37-GNm"/>
+                            <constraint firstItem="8sz-Zr-gFt" firstAttribute="top" secondItem="2Vn-w1-neI" secondAttribute="top" id="dZr-WE-U4e"/>
+                            <constraint firstItem="8sz-Zr-gFt" firstAttribute="leading" secondItem="2Vn-w1-neI" secondAttribute="leading" id="uFP-dw-oYN"/>
                             <constraint firstAttribute="trailingMargin" secondItem="JL9-ca-wF4" secondAttribute="trailing" constant="30" id="xgH-gc-Ul6"/>
                         </constraints>
                     </view>
@@ -75,7 +89,7 @@ Aly wins!</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FaU-Qb-Lki" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1151" y="358"/>
+            <point key="canvasLocation" x="1149.5999999999999" y="357.57121439280365"/>
         </scene>
         <!--Welcome View Controller-->
         <scene sceneID="dal-3P-2wg">
@@ -90,7 +104,7 @@ Aly wins!</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="301" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ykM-69-te3">
-                                <rect key="frame" x="16" y="164" width="343" height="88"/>
+                                <rect key="frame" x="16" y="140" width="343" height="88"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="88" id="Gqy-hm-awh"/>
                                 </constraints>
@@ -134,7 +148,7 @@ Aly wins!</string>
                             <constraint firstItem="paM-6f-keB" firstAttribute="top" secondItem="V5g-aj-EYK" secondAttribute="bottom" constant="12" id="fMX-vU-y3t"/>
                             <constraint firstAttribute="trailingMargin" secondItem="V5g-aj-EYK" secondAttribute="trailing" constant="30" id="g2b-XY-hlR"/>
                             <constraint firstItem="paM-6f-keB" firstAttribute="top" secondItem="V5g-aj-EYK" secondAttribute="bottom" constant="12" id="p3b-Ba-OCM"/>
-                            <constraint firstItem="ykM-69-te3" firstAttribute="top" secondItem="0EE-iJ-Ihb" secondAttribute="bottom" constant="144" id="rja-AG-7HG"/>
+                            <constraint firstItem="ykM-69-te3" firstAttribute="top" secondItem="0EE-iJ-Ihb" secondAttribute="bottom" constant="120" id="rja-AG-7HG"/>
                             <constraint firstItem="ykM-69-te3" firstAttribute="trailing" secondItem="IPc-gA-UGK" secondAttribute="trailingMargin" id="uxY-Uz-Gju"/>
                         </constraints>
                     </view>
@@ -161,7 +175,7 @@ Aly wins!</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Who's playing?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fDb-V4-142">
-                                <rect key="frame" x="16" y="80" width="343" height="44"/>
+                                <rect key="frame" x="16" y="52" width="343" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="g7P-NT-G3n"/>
                                 </constraints>
@@ -170,7 +184,7 @@ Aly wins!</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player One" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0mo-rQ-7Da" userLabel="Player One Label">
-                                <rect key="frame" x="46" y="180" width="283" height="32"/>
+                                <rect key="frame" x="46" y="128" width="283" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="Ta3-HL-EnB"/>
                                 </constraints>
@@ -178,8 +192,8 @@ Aly wins!</string>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kqo-2K-g4c" userLabel="Player One Field">
-                                <rect key="frame" x="46" y="220" width="283" height="64"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kqo-2K-g4c" userLabel="Player One Field" customClass="FormTextField" customModule="Darts301" customModuleProvider="target">
+                                <rect key="frame" x="46" y="168" width="283" height="64"/>
                                 <color key="backgroundColor" red="0.9882352941176471" green="0.98760613620448168" blue="0.98760613620448168" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="iY4-RZ-c6q"/>
@@ -187,12 +201,17 @@ Aly wins!</string>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" returnKeyType="next"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="inset">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <outlet property="delegate" destination="3vR-zN-DIB" id="yvk-sX-y6x"/>
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player Two" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QYr-bO-KLG" userLabel="Player Two Label">
-                                <rect key="frame" x="46" y="316" width="283" height="32"/>
+                                <rect key="frame" x="46" y="264" width="283" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="Oyp-U7-cgb"/>
                                 </constraints>
@@ -225,11 +244,11 @@ Aly wins!</string>
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="showDetail" identifier="startGame" action="showViewController:sender:" id="G3Q-Bi-reY"/>
+                                    <action selector="startTapped:" destination="3vR-zN-DIB" eventType="touchUpInside" id="Hmf-N5-Nxy"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xd8-9g-o5a" userLabel="Player Two Field">
-                                <rect key="frame" x="46" y="356" width="283" height="64"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xd8-9g-o5a" userLabel="Player Two Field" customClass="FormTextField" customModule="Darts301" customModuleProvider="target">
+                                <rect key="frame" x="46" y="304" width="283" height="64"/>
                                 <color key="backgroundColor" red="0.98823529409999999" green="0.98760613620000004" blue="0.98760613620000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="wPe-OY-rNA"/>
@@ -237,6 +256,11 @@ Aly wins!</string>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" returnKeyType="go"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="inset">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <outlet property="delegate" destination="3vR-zN-DIB" id="BQS-vs-DhZ"/>
                                 </connections>
@@ -245,8 +269,8 @@ Aly wins!</string>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="QYr-bO-KLG" secondAttribute="trailing" constant="30" id="07q-MX-tQ9"/>
-                            <constraint firstItem="0mo-rQ-7Da" firstAttribute="top" secondItem="fDb-V4-142" secondAttribute="bottom" constant="56" id="3gh-nJ-TZX"/>
-                            <constraint firstItem="fDb-V4-142" firstAttribute="top" secondItem="amV-mm-VWh" secondAttribute="bottom" constant="60" id="7e5-wQ-meR"/>
+                            <constraint firstItem="0mo-rQ-7Da" firstAttribute="top" secondItem="fDb-V4-142" secondAttribute="bottom" constant="32" id="3gh-nJ-TZX"/>
+                            <constraint firstItem="fDb-V4-142" firstAttribute="top" secondItem="amV-mm-VWh" secondAttribute="bottom" constant="32" id="7e5-wQ-meR"/>
                             <constraint firstAttribute="trailingMargin" secondItem="sXz-Xt-Vi5" secondAttribute="trailing" constant="30" id="8Yp-hr-x2n"/>
                             <constraint firstItem="kqo-2K-g4c" firstAttribute="leading" secondItem="C4N-hJ-ntZ" secondAttribute="leadingMargin" constant="30" id="8pN-YV-whA"/>
                             <constraint firstItem="Xd8-9g-o5a" firstAttribute="leading" secondItem="C4N-hJ-ntZ" secondAttribute="leadingMargin" constant="30" id="9xb-oB-xsk"/>
@@ -273,6 +297,7 @@ Aly wins!</string>
                         <outlet property="player2NameField" destination="Xd8-9g-o5a" id="YD6-QK-Y1J"/>
                         <outlet property="skipButton" destination="HDm-CO-YOK" id="DXY-rQ-n8x"/>
                         <outlet property="startButton" destination="sXz-Xt-Vi5" id="O6z-0r-fAM"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="startGame" id="2oS-q6-esS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UFc-WR-hjB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -601,7 +626,7 @@ Aly wins!</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="G3Q-Bi-reY"/>
-        <segue reference="GhL-NU-o8J"/>
+        <segue reference="2oS-q6-esS"/>
+        <segue reference="UMx-00-lpU"/>
     </inferredMetricsTieBreakers>
 </document>
