@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="FsM-dI-0TV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="FsM-dI-0TV">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -50,7 +50,7 @@
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="3vR-zN-DIB" kind="show" identifier="playAgain" id="UMx-00-lpU"/>
+                                    <action selector="playAgainPressed" destination="XWJ-IU-UQh" eventType="touchUpInside" id="6rt-sj-pbx"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JL9-ca-wF4" userLabel="Victory Message Label">
@@ -85,6 +85,7 @@ Aly wins!</string>
                         <outlet property="celebrateImageViewHeight" destination="CHP-vB-hLK" id="wz0-0k-pIe"/>
                         <outlet property="playAgainButton" destination="ymC-KK-Qu7" id="aSK-g6-fD6"/>
                         <outlet property="victoryMessageLabel" destination="JL9-ca-wF4" id="HQt-v8-Gfx"/>
+                        <segue destination="FsM-dI-0TV" kind="show" identifier="playAgain" id="4RP-Ug-p3r"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FaU-Qb-Lki" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -122,6 +123,9 @@ Aly wins!</string>
                                 <state key="normal" title="Rules">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="rulesPressed" destination="FsM-dI-0TV" eventType="touchUpInside" id="uR2-tJ-Wl0"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="paM-6f-keB" userLabel="Start Button">
                                 <rect key="frame" x="46" y="547" width="283" height="76"/>
@@ -627,6 +631,5 @@ Aly wins!</string>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="2oS-q6-esS"/>
-        <segue reference="UMx-00-lpU"/>
     </inferredMetricsTieBreakers>
 </document>

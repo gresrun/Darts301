@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		1D26DCCCC0AE8042AE2104C4 /* Pods_Darts301.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D764946E8282E8E9F33F974 /* Pods_Darts301.framework */; };
+		373327971EECA740005FA1BC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 373327961EECA740005FA1BC /* GoogleService-Info.plist */; };
+		3733279B1EECDA85005FA1BC /* Images.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3733279A1EECDA85005FA1BC /* Images.bundle */; };
+		3733279D1EECE2CC005FA1BC /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3733279C1EECE2CC005FA1BC /* Config.plist */; };
+		3733279F1EECE301005FA1BC /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3733279E1EECE301005FA1BC /* Config.swift */; };
 		3750D7F51E6E9F52005BC15D /* FormTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3750D7F41E6E9F52005BC15D /* FormTextField.swift */; };
 		376744A21E6A924E00EAAC1E /* VictoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376744A11E6A924E00EAAC1E /* VictoryViewController.swift */; };
 		376744A41E6A9F4D00EAAC1E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376744A31E6A9F4D00EAAC1E /* Constants.swift */; };
@@ -24,6 +28,10 @@
 
 /* Begin PBXFileReference section */
 		1648EAB185BA95C6E19F1AB7 /* Pods-Darts301.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Darts301.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Darts301/Pods-Darts301.debug.xcconfig"; sourceTree = "<group>"; };
+		373327961EECA740005FA1BC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3733279A1EECDA85005FA1BC /* Images.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Images.bundle; sourceTree = "<group>"; };
+		3733279C1EECE2CC005FA1BC /* Config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
+		3733279E1EECE301005FA1BC /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		3750D7F41E6E9F52005BC15D /* FormTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormTextField.swift; sourceTree = "<group>"; };
 		376744A11E6A924E00EAAC1E /* VictoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VictoryViewController.swift; sourceTree = "<group>"; };
 		376744A31E6A9F4D00EAAC1E /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -93,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				FB8A88AE1E5A7FC9003A5982 /* AppDelegate.swift */,
+				3733279E1EECE301005FA1BC /* Config.swift */,
 				376744A31E6A9F4D00EAAC1E /* Constants.swift */,
 				3750D7F41E6E9F52005BC15D /* FormTextField.swift */,
 				FB8A88B01E5A7FC9003A5982 /* GameViewController.swift */,
@@ -105,6 +114,9 @@
 				FB8A88B51E5A7FC9003A5982 /* Assets.xcassets */,
 				FB8A88B71E5A7FC9003A5982 /* LaunchScreen.storyboard */,
 				FB8A88BA1E5A7FC9003A5982 /* Info.plist */,
+				373327961EECA740005FA1BC /* GoogleService-Info.plist */,
+				3733279A1EECDA85005FA1BC /* Images.bundle */,
+				3733279C1EECE2CC005FA1BC /* Config.plist */,
 			);
 			path = Darts301;
 			sourceTree = "<group>";
@@ -146,6 +158,7 @@
 						CreatedOnToolsVersion = 7.2.1;
 						DevelopmentTeam = YWTRJSAU5K;
 						LastSwiftMigration = 0820;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -173,7 +186,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB8A88B91E5A7FC9003A5982 /* LaunchScreen.storyboard in Resources */,
+				373327971EECA740005FA1BC /* GoogleService-Info.plist in Resources */,
+				3733279D1EECE2CC005FA1BC /* Config.plist in Resources */,
 				FB8A88B61E5A7FC9003A5982 /* Assets.xcassets in Resources */,
+				3733279B1EECDA85005FA1BC /* Images.bundle in Resources */,
 				FB8A88B41E5A7FC9003A5982 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -208,7 +224,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		9AEA381DBA85B25F002BB16B /* [CP] Copy Pods Resources */ = {
@@ -240,6 +256,7 @@
 				FB8A88B11E5A7FC9003A5982 /* GameViewController.swift in Sources */,
 				376744A21E6A924E00EAAC1E /* VictoryViewController.swift in Sources */,
 				FB8A88C11E5A9361003A5982 /* Player.swift in Sources */,
+				3733279F1EECE301005FA1BC /* Config.swift in Sources */,
 				FB8A88AF1E5A7FC9003A5982 /* AppDelegate.swift in Sources */,
 				37A211AF1E6AA10E00B0076D /* Utils.swift in Sources */,
 			);
@@ -308,6 +325,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				"OTHER_SWIFT_FLAGS[arch=*]" = "-DDEBUG";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -360,11 +378,13 @@
 			baseConfigurationReference = 1648EAB185BA95C6E19F1AB7 /* Pods-Darts301.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = YWTRJSAU5K;
 				INFOPLIST_FILE = Darts301/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.alyweir.Darts301;
+				PRODUCT_BUNDLE_IDENTIFIER = net.greghaines.Darts301;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -374,11 +394,13 @@
 			baseConfigurationReference = 7332C939ED62B600B481998B /* Pods-Darts301.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = YWTRJSAU5K;
 				INFOPLIST_FILE = Darts301/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.alyweir.Darts301;
+				PRODUCT_BUNDLE_IDENTIFIER = net.greghaines.Darts301;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

@@ -6,6 +6,8 @@
 //  Copyright © 2017 Aly & Friends. All rights reserved.
 //
 
+import Firebase
+import GoogleMobileAds
 import UIKit
 
 @UIApplicationMain
@@ -15,6 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        FirebaseApp.configure()
+        GADMobileAds.configure(withApplicationID: Config.shared.adMobAppId)
         return true
     }
 }

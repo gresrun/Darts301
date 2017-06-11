@@ -36,4 +36,8 @@ class WelcomeViewController : UIViewController {
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
+
+    @IBAction func rulesPressed() {
+        // TODO(greghaines): Custom rules page.
+    }
 }

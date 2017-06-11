@@ -6,6 +6,7 @@
 //  Copyright © 2017 Aly & Friends. All rights reserved.
 //
 
+import Firebase
 import UIKit
 
 class GameViewController: UIViewController {
@@ -58,6 +59,11 @@ class GameViewController: UIViewController {
         dart3ScoreView.addGestureRecognizer(
             UITapGestureRecognizer(target:self, action:#selector(GameViewController.reviseDart(_:))))
 
+        // Log that a new game was started.
+        Analytics.logEvent(AnalyticsEventLevelUp, parameters: [
+            AnalyticsParameterLevel: "1" as NSObject,
+            AnalyticsParameterCharacter: "0" as NSObject,
+        ])
         nextPlayer()
     }
     
