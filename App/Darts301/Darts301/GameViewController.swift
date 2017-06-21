@@ -107,11 +107,12 @@ class GameViewController: UIViewController {
 
     private func createButtonGrid() {
         let buttonWidth: CGFloat = (keypadView.bounds.width - (GameViewController.gutterWidth * 4)) / 5.0
+        let topOffset: CGFloat = keypadView.bounds.height - (5.0 * (GameViewController.gutterHeight + buttonWidth))
         var count: Int = 1
         for row in 0...3 {
             for col in 0...4 {
                 let buttonView = keypadButton(at: CGRect(x: CGFloat(col) * (GameViewController.gutterWidth + buttonWidth),
-                    y: CGFloat(row) * (GameViewController.gutterHeight + buttonWidth), width: buttonWidth, height: buttonWidth), with: count)
+                    y: topOffset + CGFloat(row) * (GameViewController.gutterHeight + buttonWidth), width: buttonWidth, height: buttonWidth), with: count)
                 buttonView.addGestureRecognizer(
                     UILongPressGestureRecognizer(target: self, action:#selector(GameViewController.keyLongPressed(_:))))
                 keypadView.addSubview(buttonView)
@@ -121,19 +122,19 @@ class GameViewController: UIViewController {
         let row: Int = 4
         var col: Int = 0
         let button25 = keypadButton(at: CGRect(x: CGFloat(col) * (GameViewController.gutterWidth + buttonWidth),
-            y: CGFloat(row) * (GameViewController.gutterHeight + buttonWidth), width: buttonWidth, height: buttonWidth), with: 25)
+            y: topOffset + CGFloat(row) * (GameViewController.gutterHeight + buttonWidth), width: buttonWidth, height: buttonWidth), with: 25)
         keypadView.addSubview(button25)
         col += 1
         let button50 = keypadButton(at: CGRect(x: CGFloat(col) * (GameViewController.gutterWidth + buttonWidth),
-            y: CGFloat(row) * (GameViewController.gutterHeight + buttonWidth), width: buttonWidth, height: buttonWidth), with: 50)
+            y: topOffset + CGFloat(row) * (GameViewController.gutterHeight + buttonWidth), width: buttonWidth, height: buttonWidth), with: 50)
         keypadView.addSubview(button50)
         col += 1
         let button0 = keypadButton(at: CGRect(x: CGFloat(col) * (GameViewController.gutterWidth + buttonWidth),
-            y: CGFloat(row) * (GameViewController.gutterHeight + buttonWidth), width: buttonWidth, height: buttonWidth), with: 0)
+            y: topOffset + CGFloat(row) * (GameViewController.gutterHeight + buttonWidth), width: buttonWidth, height: buttonWidth), with: 0)
         keypadView.addSubview(button0)
         col += 1
         deleteButton = keypadButton(at: CGRect(x: CGFloat(col) * (GameViewController.gutterWidth + buttonWidth),
-            y: CGFloat(row) * (GameViewController.gutterHeight + buttonWidth), width: buttonWidth * 2 + GameViewController.gutterWidth, height: buttonWidth), with: -1)
+            y: topOffset + CGFloat(row) * (GameViewController.gutterHeight + buttonWidth), width: buttonWidth * 2 + GameViewController.gutterWidth, height: buttonWidth), with: -1)
         deleteButton.setTitle("Back", for: .normal)
         keypadView.addSubview(deleteButton)
     }
