@@ -318,7 +318,7 @@ class GameViewController: UIViewController {
         }
     }
     
-    func reviseDart(_ sender: UITapGestureRecognizer) {
+    @objc func reviseDart(_ sender: UITapGestureRecognizer) {
         if case .confirm = state {
             if sender.view === dart1ScoreView {
                 setNextState(State.reviseDart(1))
@@ -330,7 +330,7 @@ class GameViewController: UIViewController {
         }
     }
 
-    func keyLongPressed(_ sender: UILongPressGestureRecognizer) {
+    @objc func keyLongPressed(_ sender: UILongPressGestureRecognizer) {
         if let pressedKey = sender.view as? UIButton  {
             switch sender.state {
             case .began:
