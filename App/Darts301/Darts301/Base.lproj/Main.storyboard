@@ -45,7 +45,7 @@
                                 <rect key="frame" x="44" y="414.99999999999994" width="326" height="203.66666666666657"/>
                                 <string key="text">Good game,
 Greg wins!</string>
-                                <fontDescription key="fontDescription" name=".SFNSDisplay" family=".SF NS Display" pointSize="26"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
