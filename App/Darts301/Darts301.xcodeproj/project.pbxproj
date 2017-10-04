@@ -13,6 +13,7 @@
 		3733279D1EECE2CC005FA1BC /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3733279C1EECE2CC005FA1BC /* Config.plist */; };
 		3733279F1EECE301005FA1BC /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3733279E1EECE301005FA1BC /* Config.swift */; };
 		3750D7F51E6E9F52005BC15D /* FormTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3750D7F41E6E9F52005BC15D /* FormTextField.swift */; };
+		375B31561F84C02A006AADDB /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375B31551F84C02A006AADDB /* GradientView.swift */; };
 		376744A21E6A924E00EAAC1E /* VictoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376744A11E6A924E00EAAC1E /* VictoryViewController.swift */; };
 		376744A41E6A9F4D00EAAC1E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376744A31E6A9F4D00EAAC1E /* Constants.swift */; };
 		37A211AF1E6AA10E00B0076D /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A211AE1E6AA10E00B0076D /* Utils.swift */; };
@@ -33,6 +34,7 @@
 		3733279C1EECE2CC005FA1BC /* Config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
 		3733279E1EECE301005FA1BC /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		3750D7F41E6E9F52005BC15D /* FormTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormTextField.swift; sourceTree = "<group>"; };
+		375B31551F84C02A006AADDB /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		376744A11E6A924E00EAAC1E /* VictoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VictoryViewController.swift; sourceTree = "<group>"; };
 		376744A31E6A9F4D00EAAC1E /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		37A211AE1E6AA10E00B0076D /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				376744A31E6A9F4D00EAAC1E /* Constants.swift */,
 				3750D7F41E6E9F52005BC15D /* FormTextField.swift */,
 				FB8A88B01E5A7FC9003A5982 /* GameViewController.swift */,
+				375B31551F84C02A006AADDB /* GradientView.swift */,
 				FB8A88C01E5A9361003A5982 /* Player.swift */,
 				37A211AE1E6AA10E00B0076D /* Utils.swift */,
 				376744A11E6A924E00EAAC1E /* VictoryViewController.swift */,
@@ -251,6 +254,7 @@
 			files = (
 				376744A41E6A9F4D00EAAC1E /* Constants.swift in Sources */,
 				3750D7F51E6E9F52005BC15D /* FormTextField.swift in Sources */,
+				375B31561F84C02A006AADDB /* GradientView.swift in Sources */,
 				37A211B31E6AB05900B0076D /* WelcomeViewController.swift in Sources */,
 				37A211B11E6AA68800B0076D /* WhosPlayingViewController.swift in Sources */,
 				FB8A88B11E5A7FC9003A5982 /* GameViewController.swift in Sources */,
