@@ -88,7 +88,7 @@ class GameViewController: UIViewController {
             player1ScoreBox.layer.shadowOpacity = 0.0
             Utils.addShadow(to: player2ScoreBox)
         }
-        turnLabel.text = "\(currentPlayer!.name)'s Turn".uppercased()
+        turnLabel.text = String(format: NSLocalizedString("CURRENT_PLAYER_TURN", value: "%@'s Turn", comment: "Label that displays the current user name and tells the user it is their turn."), currentPlayer!.name).uppercased()
         turnLabel.textColor = colorForCurrentPlayer()
         for subview in keypadView.subviews {
             if let buttonView = subview as? UIButton {
@@ -135,7 +135,7 @@ class GameViewController: UIViewController {
         col += 1
         deleteButton = keypadButton(at: CGRect(x: CGFloat(col) * (GameViewController.gutterWidth + buttonWidth),
             y: topOffset + CGFloat(row) * (GameViewController.gutterHeight + buttonWidth), width: buttonWidth * 2 + GameViewController.gutterWidth, height: buttonWidth), with: -1)
-        deleteButton.setTitle("Back", for: .normal)
+        deleteButton.setTitle(CommonStrings.back, for: .normal)
         keypadView.addSubview(deleteButton)
     }
 
@@ -172,7 +172,7 @@ class GameViewController: UIViewController {
         buttonView.layer.borderColor = UIColor(red: 232 / 255, green: 232 / 255, blue: 232 / 255, alpha: 1.0).cgColor
         buttonView.backgroundColor = UIColor(red: 242 / 255, green: 242 / 255, blue: 242 / 255, alpha: 1.0)
         buttonView.titleLabel?.font = UIFont.systemFont(ofSize: 30.0)
-        buttonView.setTitle("\(value)", for: .normal)
+        buttonView.setTitle(String.localizedStringWithFormat("%i", value), for: .normal)
         buttonView.setTitleColor(UIColor.darkText, for: .normal)
         buttonView.setTitleColor(colorForCurrentPlayer(), for: .highlighted)
         buttonView.addTarget(self, action: #selector(keypadButtonPressed(_:)), for: .touchUpInside)
@@ -187,8 +187,8 @@ class GameViewController: UIViewController {
         buttonView.titleLabel?.font = UIFont.systemFont(ofSize: 30.0)
         buttonView.layer.cornerRadius = 0.5 * buttonView.bounds.size.width
         buttonView.clipsToBounds = true
-        buttonView.setTitle("x\(value)", for: .normal)
-        buttonView.tag = value * 100;
+        buttonView.setTitle(String.localizedStringWithFormat("x%i", value), for: .normal)
+        buttonView.tag = value * 100
         Utils.addShadow(to: buttonView)
         return buttonView
     }
@@ -239,27 +239,27 @@ class GameViewController: UIViewController {
         case .inputDart(1):
             scoreHelpText.isHidden = true
             roundScore.dart1 = value
-            dart1ScoreLabel.text = "\(value)"
+            dart1ScoreLabel.text = String.localizedStringWithFormat("%i", value)
             setNextState(.inputDart(2))
         case .inputDart(2):
             roundScore.dart2 = value
-            dart2ScoreLabel.text = "\(value)"
+            dart2ScoreLabel.text = String.localizedStringWithFormat("%i", value)
             setNextState(.inputDart(3))
         case .inputDart(3):
             roundScore.dart3 = value
-            dart3ScoreLabel.text = "\(value)"
+            dart3ScoreLabel.text = String.localizedStringWithFormat("%i", value)
             setNextState(.confirm)
         case .reviseDart(1):
             roundScore.dart1 = value
-            dart1ScoreLabel.text = "\(value)"
+            dart1ScoreLabel.text = String.localizedStringWithFormat("%i", value)
             setNextState(.confirm)
         case .reviseDart(2):
             roundScore.dart2 = value
-            dart2ScoreLabel.text = "\(value)"
+            dart2ScoreLabel.text = String.localizedStringWithFormat("%i", value)
             setNextState(.confirm)
         case .reviseDart(3):
             roundScore.dart3 = value
-            dart3ScoreLabel.text = "\(value)"
+            dart3ScoreLabel.text = String.localizedStringWithFormat("%i", value)
             setNextState(.confirm)
         default:
             // OMGWTFBBQ
@@ -276,10 +276,10 @@ class GameViewController: UIViewController {
             var sum: Int = roundScore.dart1!
             sum += roundScore.dart2!
             sum += roundScore.dart3!
-            confirmButton.setTitle("Enter \(sum) points", for: .normal)
-            dart1ScoreLabel.text = "\(roundScore.dart1!)"
-            dart2ScoreLabel.text = "\(roundScore.dart2!)"
-            dart3ScoreLabel.text = "\(roundScore.dart3!)"
+            confirmButton.setTitle(String(format: NSLocalizedString("CONFIRM_ROUND_SCORE", value: "Enter %i points", comment: "Label that asks the user to confirm the entry of the round's score."), sum), for: .normal)
+            dart1ScoreLabel.text = String.localizedStringWithFormat("%i", roundScore.dart1!)
+            dart2ScoreLabel.text = String.localizedStringWithFormat("%i", roundScore.dart2!)
+            dart3ScoreLabel.text = String.localizedStringWithFormat("%i", roundScore.dart3!)
         case .finish:
             var sum: Int = roundScore.dart1!
             sum += roundScore.dart2!
@@ -296,22 +296,22 @@ class GameViewController: UIViewController {
                 setNextState(.inputDart(1))
             }
         case .inputDart(1), .inputDart(2), .inputDart(3):
-            deleteButton.setTitle("Back", for: .normal)
+            deleteButton.setTitle(CommonStrings.back, for: .normal)
         case .reviseDart(1):
             dart1ScoreLabel.text = ""
             keypadView.isHidden = false
             confirmButtonView.isHidden = true
-            deleteButton.setTitle("Cancel", for: .normal)
+            deleteButton.setTitle(CommonStrings.cancel, for: .normal)
         case .reviseDart(2):
             dart2ScoreLabel.text = ""
             keypadView.isHidden = false
             confirmButtonView.isHidden = true
-            deleteButton.setTitle("Cancel", for: .normal)
+            deleteButton.setTitle(CommonStrings.cancel, for: .normal)
         case .reviseDart(3):
             dart3ScoreLabel.text = ""
             keypadView.isHidden = false
             confirmButtonView.isHidden = true
-            deleteButton.setTitle("Cancel", for: .normal)
+            deleteButton.setTitle(CommonStrings.cancel, for: .normal)
         default:
             keypadView.isHidden = false
             confirmButtonView.isHidden = true
@@ -339,7 +339,7 @@ class GameViewController: UIViewController {
                 multiplierView.isHidden = false
                 UIView.animate(withDuration: GameViewController.multiplierAnimationDuration, animations: {
                     self.multiplierView.alpha = 1.0
-                });
+                })
             case .ended:
                 let touchPoint = sender.location(in: multiplierView)
                 let potentialView = multiplierView.subviews.first(where: { (subview) -> Bool in

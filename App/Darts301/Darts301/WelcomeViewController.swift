@@ -20,6 +20,8 @@ class WelcomeViewController : UIViewController {
         rulesButton.layer.borderColor = UIColor.white.cgColor
         rulesButton.layer.borderWidth = 2.0
         Utils.addShadow(to: startButton)
+        rulesButton.setTitle(NSLocalizedString("RULES_BUTTON", value: "Rules", comment: "Button that, when pressed, will direct the user to the rules of the game."), for: .normal)
+        startButton.setTitle(NSLocalizedString("START_GAME_BUTTON", value: "Start new game", comment: "Button that, when pressed, will start a new game."), for: .normal)
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {

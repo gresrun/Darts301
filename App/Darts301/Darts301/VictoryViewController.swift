@@ -52,11 +52,11 @@ class VictoryViewController : UIViewController, GADInterstitialDelegate {
         Utils.addShadow(to: playAgainButton)
         view.backgroundColor = (winner.playerNum == 1) ? Colors.player1Color : Colors.player2Color
         if pointSpread < 10 {
-            victoryMessageLabel.text = "That was a close one!\nBut \(winner.name) wins. Nice work!"
+            victoryMessageLabel.text = String(format: NSLocalizedString("VICTORY_CLOSE", value: "That was a close one!\nBut %@ wins. Nice work!", comment: "Label indicating which player won and that the margin of victory was small."))
         } else if pointSpread < 75 {
-            victoryMessageLabel.text = "Good game,\n\(winner.name) wins!"
+            victoryMessageLabel.text = String(format: NSLocalizedString("VICTORY_STANDARD", value: "Good game,\n%@ wins!", comment: "Label indicating which player won and that the margin of victory was nominal."))
         } else {
-            victoryMessageLabel.text = "\(winner.name) crushed it!\nGood win."
+            victoryMessageLabel.text = String(format: NSLocalizedString("VICTORY_HUGE", value: "%@ crushed it!\nGood win.", comment: "Label indicating which player won and that the margin of victory was large."))
         }
     }
 

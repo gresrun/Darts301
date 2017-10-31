@@ -28,6 +28,8 @@ class WhosPlayingViewController : UIViewController, UITextFieldDelegate, Validat
         player2NameField.layer.cornerRadius = 4.0
         validator.registerField(player1NameField, rules: [RequiredRule()])
         validator.registerField(player2NameField, rules: [RequiredRule()])
+        startButton.setTitle(NSLocalizedString("START_BUTTON", value: "Start", comment: "Button that, when pressed, starts the game with the given user names."), for: .normal)
+        skipButton.setTitle(NSLocalizedString("SKIP_BUTTON", value: "Skip", comment: "Button that, when pressed, starts the game with default user names."), for: .normal)
         clearValidationErrors()
     }
 
@@ -36,8 +38,8 @@ class WhosPlayingViewController : UIViewController, UITextFieldDelegate, Validat
             gameVC.player1 = Player(player1NameField.text!, playerNum: 1)
             gameVC.player2 = Player(player2NameField.text!, playerNum: 2)
         } else if segue.identifier == Segues.startGameSkipNames, let gameVC = segue.destination as? GameViewController {
-            gameVC.player1 = Player("Player 1", playerNum: 1)
-            gameVC.player2 = Player("Player 2", playerNum: 2)
+            gameVC.player1 = Player(CommonStrings.playerNum(1), playerNum: 1)
+            gameVC.player2 = Player(CommonStrings.playerNum(2), playerNum: 2)
         }
     }
 
@@ -91,7 +93,7 @@ class WhosPlayingViewController : UIViewController, UITextFieldDelegate, Validat
             textField.resignFirstResponder()
             validator.validate(self)
         }
-        return true;
+        return true
     }
 
     // MARK: ValidationDelegate
