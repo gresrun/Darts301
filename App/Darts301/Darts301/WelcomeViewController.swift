@@ -12,9 +12,11 @@ class WelcomeViewController : UIViewController {
 
     @IBOutlet weak var gradientView: GradientView!
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var titleLabelVerticalCenterConstraint: NSLayoutConstraint!
     @IBOutlet weak var rulesButton: UIButton!
     @IBOutlet weak var startButton: UIButton!
+    @IBOutlet weak var infoButton: UIButton!
+    var titleLabelTopConstraint: NSLayoutConstraint?
+    var titleLabelVerticalCenterConstraint: NSLayoutConstraint?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,25 +34,36 @@ class WelcomeViewController : UIViewController {
                                                value: "Start new game",
                                                comment: "Button that, when pressed, will start a new game."),
                              for: .normal)
-        gradientView.alpha = 0.0;
-        rulesButton.alpha = 0.0;
-        startButton.alpha = 0.0;
+        titleLabelTopConstraint = NSLayoutConstraint(item: self.titleLabel,
+                                                    attribute: .top,
+                                                    relatedBy: .equal,
+                                                    toItem: self.topLayoutGuide,
+                                                    attribute: .bottom,
+                                                    multiplier: 1,
+                                                    constant: 120)
+        titleLabelVerticalCenterConstraint = NSLayoutConstraint(item: self.titleLabel,
+                                                                attribute: .centerY,
+                                                                relatedBy: .equal,
+                                                                toItem: self.view,
+                                                                attribute: .centerY,
+                                                                multiplier: 1,
+                                                                constant: 0)
+        self.view.addConstraint(titleLabelVerticalCenterConstraint!)
+        gradientView.alpha = 0.0
+        rulesButton.alpha = 0.0
+        startButton.alpha = 0.0
+        infoButton.alpha = 0.0
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.view.removeConstraint(self.titleLabelVerticalCenterConstraint)
-        self.view.addConstraint(NSLayoutConstraint(item: self.titleLabel,
-                                                         attribute: .top,
-                                                         relatedBy: .equal,
-                                                         toItem: self.topLayoutGuide,
-                                                         attribute: .bottom,
-                                                         multiplier: 1,
-                                                         constant: 120))
+        self.view.removeConstraint(self.titleLabelVerticalCenterConstraint!)
+        self.view.addConstraint(self.titleLabelTopConstraint!)
         UIView.animate(withDuration: 0.8) {
-            self.gradientView.alpha = 1.0;
-            self.rulesButton.alpha = 1.0;
-            self.startButton.alpha = 1.0;
+            self.gradientView.alpha = 1.0
+            self.rulesButton.alpha = 1.0
+            self.startButton.alpha = 1.0
+            self.infoButton.alpha = 1.0
             self.view.layoutIfNeeded()
         }
     }
@@ -61,5 +74,9 @@ class WelcomeViewController : UIViewController {
 
     @IBAction func rulesPressed() {
         // TODO(greghaines): Custom rules page.
+    }
+
+    @IBAction func exit(segue: UIStoryboardSegue) {
+        // Needed to exit the About VC
     }
 }
