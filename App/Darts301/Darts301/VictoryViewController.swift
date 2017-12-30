@@ -14,7 +14,7 @@ import UIKit
 class VictoryViewController : UIViewController, GADInterstitialDelegate {
 
     @IBOutlet weak var celebrateImageView: UIImageView!
-    @IBOutlet weak var celebrateImageViewHeight: NSLayoutConstraint!
+//    @IBOutlet weak var celebrateImageViewHeight: NSLayoutConstraint!
     @IBOutlet weak var victoryMessageLabel: UILabel!
     @IBOutlet weak var playAgainButton: UIButton!
 
@@ -33,6 +33,13 @@ class VictoryViewController : UIViewController, GADInterstitialDelegate {
         let imageUrl = contents[randomIndex]
         if let gif = UIImage.animatedImage(withAnimatedGIFURL: imageUrl) {
             self.celebrateImageView.image = gif
+            self.celebrateImageView.addConstraint(NSLayoutConstraint(item: self.celebrateImageView,
+                                                                     attribute: .width,
+                                                                     relatedBy: .equal,
+                                                                     toItem: self.celebrateImageView,
+                                                                     attribute: .height,
+                                                                     multiplier: gif.size.width / gif.size.height,
+                                                                     constant: 0.0))
         }
         // Pre-load the post-victory interstitial ad.
         interstitial = GADInterstitial(adUnitID: Ads.postVictoryAdUnitId)
@@ -52,25 +59,24 @@ class VictoryViewController : UIViewController, GADInterstitialDelegate {
         Utils.addShadow(to: playAgainButton)
         view.backgroundColor = (winner.playerNum == 1) ? Colors.player1Color : Colors.player2Color
         if pointSpread < 10 {
-            victoryMessageLabel.text = String(format: NSLocalizedString("VICTORY_CLOSE", value: "That was a close one!\nBut %@ wins. Nice work!", comment: "Label indicating which player won and that the margin of victory was small."))
+            victoryMessageLabel.text = String(format: NSLocalizedString("VICTORY_CLOSE", value: "That was a close one!\nBut %@ wins. Nice work!", comment: "Label indicating which player won and that the margin of victory was small."), winner.name)
         } else if pointSpread < 75 {
-            victoryMessageLabel.text = String(format: NSLocalizedString("VICTORY_STANDARD", value: "Good game,\n%@ wins!", comment: "Label indicating which player won and that the margin of victory was nominal."))
+            victoryMessageLabel.text = String(format: NSLocalizedString("VICTORY_STANDARD", value: "Good game,\n%@ wins!", comment: "Label indicating which player won and that the margin of victory was nominal."), winner.name)
         } else {
-            victoryMessageLabel.text = String(format: NSLocalizedString("VICTORY_HUGE", value: "%@ crushed it!\nGood win.", comment: "Label indicating which player won and that the margin of victory was large."))
+            victoryMessageLabel.text = String(format: NSLocalizedString("VICTORY_HUGE", value: "%@ crushed it!\nGood win.", comment: "Label indicating which player won and that the margin of victory was large."), winner.name)
         }
     }
+
+//    override func viewDidAppear(_ animated: Bool) {
+//        if let gif = self.celebrateImageView.image {
+//            self.celebrateImageViewHeight.constant = gif.size.height / gif.size.width * self.view.bounds.size.width;
+//            self.view.layoutIfNeeded()
+//        }
+//        super.viewDidAppear(animated)
+//    }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        if let gif = self.celebrateImageView.image {
-            let scaledHeight = gif.size.height / gif.size.width * self.celebrateImageView.bounds.width
-            self.celebrateImageViewHeight.constant = scaledHeight
-            self.celebrateImageView.layoutIfNeeded()
-        }
     }
 
     @IBAction func playAgainPressed() {

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="FsM-dI-0TV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="FsM-dI-0TV">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -28,9 +28,9 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="407"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IZ0-rt-yfH" userLabel="Celebrate Image">
-                                        <rect key="frame" x="40" y="112" width="334" height="184"/>
+                                        <rect key="frame" x="40" y="110" width="334" height="188"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="184" id="CHP-vB-hLK"/>
+                                            <constraint firstAttribute="width" secondItem="IZ0-rt-yfH" secondAttribute="height" multiplier="16:9" placeholder="YES" id="pEs-he-y4f"/>
                                         </constraints>
                                     </imageView>
                                 </subviews>
@@ -82,7 +82,6 @@ Greg wins!</string>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="celebrateImageView" destination="IZ0-rt-yfH" id="Igp-vM-nQD"/>
-                        <outlet property="celebrateImageViewHeight" destination="CHP-vB-hLK" id="wz0-0k-pIe"/>
                         <outlet property="playAgainButton" destination="ymC-KK-Qu7" id="aSK-g6-fD6"/>
                         <outlet property="victoryMessageLabel" destination="JL9-ca-wF4" id="HQt-v8-Gfx"/>
                         <segue destination="FsM-dI-0TV" kind="show" identifier="playAgain" id="4RP-Ug-p3r"/>
@@ -230,7 +229,7 @@ Greg wins!</string>
                                                     <outlet property="delegate" destination="3vR-zN-DIB" id="yvk-sX-y6x"/>
                                                 </connections>
                                             </textField>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player One" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0mo-rQ-7Da" userLabel="Player One Label">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player One" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0mo-rQ-7Da" userLabel="Player One Label">
                                                 <rect key="frame" x="0.0" y="7.9999999999999982" width="374" height="26.333333333333329"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                 <nil key="textColor"/>
@@ -268,7 +267,7 @@ Greg wins!</string>
                                                     <outlet property="delegate" destination="3vR-zN-DIB" id="BQS-vs-DhZ"/>
                                                 </connections>
                                             </textField>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player Two" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QYr-bO-KLG" userLabel="Player Two Label">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player Two" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QYr-bO-KLG" userLabel="Player Two Label">
                                                 <rect key="frame" x="0.0" y="7.9999999999999982" width="374" height="26.333333333333329"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                 <nil key="textColor"/>
