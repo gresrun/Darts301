@@ -331,7 +331,7 @@ class GameViewController: UIViewController {
     }
 
     @objc func keyLongPressed(_ sender: UILongPressGestureRecognizer) {
-        if let pressedKey = sender.view as? UIButton  {
+        if let pressedKey = sender.view as? UIButton {
             switch sender.state {
             case .began:
                 layoutMultiplierView(with: pressedKey)

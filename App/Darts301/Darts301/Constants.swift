@@ -24,6 +24,7 @@ struct Colors {
 
 struct Segues {
     static let rules = "rules"
+    static let about = "about"
     static let enterPlayers = "enterPlayers"
     static let startGame = "startGame"
     static let startGameSkipNames = "startGameSkipNames"

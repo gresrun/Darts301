@@ -115,7 +115,7 @@ Greg wins!</string>
                                 </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
-                                    <segue destination="VwE-dg-3q9" kind="show" identifier="ShowInfo" id="usV-sE-3VY"/>
+                                    <segue destination="VwE-dg-3q9" kind="show" identifier="about" id="usV-sE-3VY"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="301" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ykM-69-te3">
