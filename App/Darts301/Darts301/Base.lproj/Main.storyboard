@@ -99,12 +99,16 @@ Greg wins!</string>
                         <viewControllerLayoutGuide type="top" id="0EE-iJ-Ihb"/>
                         <viewControllerLayoutGuide type="bottom" id="RLc-Xm-T9W"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="IPc-gA-UGK" customClass="GradientView" customModule="Darts301" customModuleProvider="target">
+                    <view key="view" contentMode="scaleToFill" id="IPc-gA-UGK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yF3-ic-46r" customClass="GradientView" customModule="Darts301" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="301" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ykM-69-te3">
-                                <rect key="frame" x="20" y="140" width="374" height="88"/>
+                                <rect key="frame" x="20" y="324" width="374" height="88"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="88" id="Gqy-hm-awh"/>
                                 </constraints>
@@ -140,6 +144,7 @@ Greg wins!</string>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="yF3-ic-46r" secondAttribute="bottom" id="C7z-El-dsI"/>
                             <constraint firstAttribute="trailingMargin" secondItem="paM-6f-keB" secondAttribute="trailing" constant="24" id="Dtk-8d-KtF"/>
                             <constraint firstItem="RLc-Xm-T9W" firstAttribute="top" secondItem="paM-6f-keB" secondAttribute="bottom" constant="24" id="DvP-32-NWZ"/>
                             <constraint firstItem="paM-6f-keB" firstAttribute="leading" secondItem="IPc-gA-UGK" secondAttribute="leadingMargin" constant="24" id="GH9-JB-Y22"/>
@@ -147,20 +152,26 @@ Greg wins!</string>
                             <constraint firstItem="ykM-69-te3" firstAttribute="leading" secondItem="IPc-gA-UGK" secondAttribute="leadingMargin" id="Osy-1k-F4A"/>
                             <constraint firstAttribute="trailingMargin" secondItem="V5g-aj-EYK" secondAttribute="trailing" constant="24" id="g2b-XY-hlR"/>
                             <constraint firstItem="paM-6f-keB" firstAttribute="height" secondItem="V5g-aj-EYK" secondAttribute="height" id="hIk-v0-EyI"/>
+                            <constraint firstItem="ykM-69-te3" firstAttribute="centerY" secondItem="IPc-gA-UGK" secondAttribute="centerY" id="hlb-tF-cF2"/>
+                            <constraint firstItem="yF3-ic-46r" firstAttribute="top" secondItem="IPc-gA-UGK" secondAttribute="top" id="kE0-JM-dpX"/>
+                            <constraint firstItem="yF3-ic-46r" firstAttribute="leading" secondItem="IPc-gA-UGK" secondAttribute="leading" id="kby-eG-cYu"/>
                             <constraint firstItem="paM-6f-keB" firstAttribute="top" secondItem="V5g-aj-EYK" secondAttribute="bottom" constant="12" id="p3b-Ba-OCM"/>
-                            <constraint firstItem="ykM-69-te3" firstAttribute="top" secondItem="0EE-iJ-Ihb" secondAttribute="bottom" constant="120" id="rja-AG-7HG"/>
                             <constraint firstItem="ykM-69-te3" firstAttribute="trailing" secondItem="IPc-gA-UGK" secondAttribute="trailingMargin" id="uxY-Uz-Gju"/>
+                            <constraint firstAttribute="trailing" secondItem="yF3-ic-46r" secondAttribute="trailing" id="xMQ-6p-jYQ"/>
                         </constraints>
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
+                        <outlet property="gradientView" destination="yF3-ic-46r" id="0Vt-q1-CwC"/>
                         <outlet property="rulesButton" destination="V5g-aj-EYK" id="vbP-yJ-VCo"/>
                         <outlet property="startButton" destination="paM-6f-keB" id="Q5u-AX-UPV"/>
+                        <outlet property="titleLabel" destination="ykM-69-te3" id="3AA-Ah-49k"/>
+                        <outlet property="titleLabelVerticalCenterConstraint" destination="hlb-tF-cF2" id="hkS-sZ-NEN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k7Q-ht-gOM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1386.4000000000001" y="357.57121439280365"/>
+            <point key="canvasLocation" x="-1386.9565217391305" y="357.06521739130437"/>
         </scene>
         <!--Whos Playing View Controller-->
         <scene sceneID="S3F-fU-uv5">
