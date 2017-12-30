@@ -337,9 +337,9 @@ class GameViewController: UIViewController {
                 layoutMultiplierView(with: pressedKey)
                 multiplierView.alpha = 0.0
                 multiplierView.isHidden = false
-                UIView.animate(withDuration: GameViewController.multiplierAnimationDuration, animations: {
+                UIView.animate(withDuration: GameViewController.multiplierAnimationDuration) {
                     self.multiplierView.alpha = 1.0
-                })
+                }
             case .ended:
                 let touchPoint = sender.location(in: multiplierView)
                 let potentialView = multiplierView.subviews.first(where: { (subview) -> Bool in

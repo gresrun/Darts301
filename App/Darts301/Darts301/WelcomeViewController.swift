@@ -15,8 +15,9 @@ class WelcomeViewController : UIViewController {
     @IBOutlet weak var rulesButton: UIButton!
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var infoButton: UIButton!
-    var titleLabelTopConstraint: NSLayoutConstraint?
-    var titleLabelVerticalCenterConstraint: NSLayoutConstraint?
+
+    private var titleLabelTopConstraint: NSLayoutConstraint?
+    private var titleLabelVerticalCenterConstraint: NSLayoutConstraint?
 
     override func viewDidLoad() {
         super.viewDidLoad()

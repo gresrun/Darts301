@@ -14,13 +14,13 @@ import UIKit
 class VictoryViewController : UIViewController, GADInterstitialDelegate {
 
     @IBOutlet weak var celebrateImageView: UIImageView!
-//    @IBOutlet weak var celebrateImageViewHeight: NSLayoutConstraint!
     @IBOutlet weak var victoryMessageLabel: UILabel!
     @IBOutlet weak var playAgainButton: UIButton!
 
     var winner: Player!
     var pointSpread: Int!
-    var interstitial: GADInterstitial!
+
+    private var interstitial: GADInterstitial!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,14 +66,6 @@ class VictoryViewController : UIViewController, GADInterstitialDelegate {
             victoryMessageLabel.text = String(format: NSLocalizedString("VICTORY_HUGE", value: "%@ crushed it!\nGood win.", comment: "Label indicating which player won and that the margin of victory was large."), winner.name)
         }
     }
-
-//    override func viewDidAppear(_ animated: Bool) {
-//        if let gif = self.celebrateImageView.image {
-//            self.celebrateImageViewHeight.constant = gif.size.height / gif.size.width * self.view.bounds.size.width;
-//            self.view.layoutIfNeeded()
-//        }
-//        super.viewDidAppear(animated)
-//    }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
