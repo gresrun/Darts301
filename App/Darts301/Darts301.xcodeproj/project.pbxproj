@@ -16,6 +16,8 @@
 		375B31561F84C02A006AADDB /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375B31551F84C02A006AADDB /* GradientView.swift */; };
 		376744A21E6A924E00EAAC1E /* VictoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376744A11E6A924E00EAAC1E /* VictoryViewController.swift */; };
 		376744A41E6A9F4D00EAAC1E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376744A31E6A9F4D00EAAC1E /* Constants.swift */; };
+		37906AEE1FF8A76F00AF285D /* IAPStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37906AED1FF8A76F00AF285D /* IAPStore.swift */; };
+		37906AF01FF8BC9600AF285D /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37906AEF1FF8BC9600AF285D /* StoreKit.framework */; };
 		379FEAA31FA86B6D005B44C1 /* CommonStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379FEAA21FA86B6D005B44C1 /* CommonStrings.swift */; };
 		37A211AF1E6AA10E00B0076D /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A211AE1E6AA10E00B0076D /* Utils.swift */; };
 		37A211B11E6AA68800B0076D /* WhosPlayingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A211B01E6AA68800B0076D /* WhosPlayingViewController.swift */; };
@@ -38,6 +40,8 @@
 		375B31551F84C02A006AADDB /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		376744A11E6A924E00EAAC1E /* VictoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VictoryViewController.swift; sourceTree = "<group>"; };
 		376744A31E6A9F4D00EAAC1E /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		37906AED1FF8A76F00AF285D /* IAPStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPStore.swift; sourceTree = "<group>"; };
+		37906AEF1FF8BC9600AF285D /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		379FEAA21FA86B6D005B44C1 /* CommonStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonStrings.swift; sourceTree = "<group>"; };
 		37A211AE1E6AA10E00B0076D /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		37A211B01E6AA68800B0076D /* WhosPlayingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WhosPlayingViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +64,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D26DCCCC0AE8042AE2104C4 /* Pods_Darts301.framework in Frameworks */,
+				37906AF01FF8BC9600AF285D /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,6 +74,7 @@
 		3D4A6C690B0A44ED715C94E7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				37906AEF1FF8BC9600AF285D /* StoreKit.framework */,
 				3D764946E8282E8E9F33F974 /* Pods_Darts301.framework */,
 			);
 			name = Frameworks;
@@ -111,6 +117,7 @@
 				3750D7F41E6E9F52005BC15D /* FormTextField.swift */,
 				FB8A88B01E5A7FC9003A5982 /* GameViewController.swift */,
 				375B31551F84C02A006AADDB /* GradientView.swift */,
+				37906AED1FF8A76F00AF285D /* IAPStore.swift */,
 				FB8A88C01E5A9361003A5982 /* Player.swift */,
 				37A211AE1E6AA10E00B0076D /* Utils.swift */,
 				376744A11E6A924E00EAAC1E /* VictoryViewController.swift */,
@@ -165,6 +172,11 @@
 						DevelopmentTeam = YWTRJSAU5K;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -256,6 +268,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				376744A41E6A9F4D00EAAC1E /* Constants.swift in Sources */,
+				37906AEE1FF8A76F00AF285D /* IAPStore.swift in Sources */,
 				3750D7F51E6E9F52005BC15D /* FormTextField.swift in Sources */,
 				375B31561F84C02A006AADDB /* GradientView.swift in Sources */,
 				37A211B31E6AB05900B0076D /* WelcomeViewController.swift in Sources */,

@@ -22,9 +22,15 @@ struct Colors {
     static let player2Color = UIColor(red: 249 / 255, green: 192 / 255, blue: 86 / 255, alpha: 1.0)
 }
 
+struct IAPProducts {
+    static let noAds = "net.greghaines.Darts301.NoAds";
+    static let store = IAPStore(productIds: [noAds])
+}
+
 struct Segues {
     static let rules = "rules"
     static let about = "about"
+    static let purchases = "purchases"
     static let enterPlayers = "enterPlayers"
     static let startGame = "startGame"
     static let startGameSkipNames = "startGameSkipNames"

@@ -15,6 +15,7 @@ class WelcomeViewController : UIViewController {
     @IBOutlet weak var rulesButton: UIButton!
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var infoButton: UIButton!
+    @IBOutlet weak var storeButton: UIButton!
 
     private var titleLabelTopConstraint: NSLayoutConstraint?
     private var titleLabelVerticalCenterConstraint: NSLayoutConstraint?
@@ -54,19 +55,21 @@ class WelcomeViewController : UIViewController {
         rulesButton.alpha = 0.0
         startButton.alpha = 0.0
         infoButton.alpha = 0.0
+        storeButton.alpha = 0.0
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.view.removeConstraint(self.titleLabelVerticalCenterConstraint!)
         self.view.addConstraint(self.titleLabelTopConstraint!)
-        UIView.animate(withDuration: 0.8) {
+        UIView.animate(withDuration: 0.8, delay: 0.8, options: .curveEaseInOut, animations: {
             self.gradientView.alpha = 1.0
             self.rulesButton.alpha = 1.0
             self.startButton.alpha = 1.0
             self.infoButton.alpha = 1.0
+            self.storeButton.alpha = 1.0
             self.view.layoutIfNeeded()
-        }
+        }, completion: nil)
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {

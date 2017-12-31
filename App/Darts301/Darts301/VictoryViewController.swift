@@ -20,7 +20,7 @@ class VictoryViewController : UIViewController, GADInterstitialDelegate {
     var winner: Player!
     var pointSpread: Int!
 
-    private var interstitial: GADInterstitial!
+    private var interstitial: GADInterstitial?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,12 +41,14 @@ class VictoryViewController : UIViewController, GADInterstitialDelegate {
                                                                      multiplier: gif.size.width / gif.size.height,
                                                                      constant: 0.0))
         }
-        // Pre-load the post-victory interstitial ad.
-        interstitial = GADInterstitial(adUnitID: Ads.postVictoryAdUnitId)
-        interstitial.delegate = self
-        let adRequest = GADRequest()
-        adRequest.testDevices = [kGADSimulatorID]
-        interstitial.load(adRequest)
+        if !IAPProducts.store.isProductPurchased(IAPProducts.noAds) {
+            // Pre-load the post-victory interstitial ad.
+            interstitial = GADInterstitial(adUnitID: Ads.postVictoryAdUnitId)
+            interstitial!.delegate = self
+            let adRequest = GADRequest()
+            adRequest.testDevices = [kGADSimulatorID]
+            interstitial!.load(adRequest)
+        }
         // Log that a game was finished.
         Analytics.logEvent(AnalyticsEventPostScore, parameters: [
             AnalyticsParameterLevel: "1" as NSObject,
@@ -72,10 +74,9 @@ class VictoryViewController : UIViewController, GADInterstitialDelegate {
     }
 
     @IBAction func playAgainPressed() {
-        if interstitial.isReady {
+        if let interstitial = interstitial, interstitial.isReady {
             interstitial.present(fromRootViewController: self)
         } else {
-            print("Ad was not ready")
             returnToWelcomeVC()
         }
     }
