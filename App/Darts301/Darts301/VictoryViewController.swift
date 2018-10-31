@@ -53,7 +53,7 @@ class VictoryViewController : UIViewController, GADInterstitialDelegate {
         Analytics.logEvent(AnalyticsEventPostScore, parameters: [
             AnalyticsParameterLevel: "1" as NSObject,
             AnalyticsParameterCharacter: "\(winner.playerNum)" as NSObject,
-            AnalyticsParameterScore: "\(pointSpread)" as NSObject
+            AnalyticsParameterScore: "\(pointSpread ?? 0)" as NSObject
         ])
         // Finish setting up the UI.
         Utils.addShadow(to: celebrateImageView)
