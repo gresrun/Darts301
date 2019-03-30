@@ -36,21 +36,17 @@ class WelcomeViewController : UIViewController {
                                                value: "Start new game",
                                                comment: "Button that, when pressed, will start a new game."),
                              for: .normal)
-        titleLabelTopConstraint = NSLayoutConstraint(item: self.titleLabel,
-                                                    attribute: .top,
-                                                    relatedBy: .equal,
-                                                    toItem: self.topLayoutGuide,
-                                                    attribute: .bottom,
-                                                    multiplier: 1,
-                                                    constant: 120)
-        titleLabelVerticalCenterConstraint = NSLayoutConstraint(item: self.titleLabel,
+        titleLabelTopConstraint =
+            self.titleLabel.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor)
+        titleLabelTopConstraint?.constant = 120
+        titleLabelVerticalCenterConstraint = NSLayoutConstraint(item: self.titleLabel!,
                                                                 attribute: .centerY,
                                                                 relatedBy: .equal,
                                                                 toItem: self.view,
                                                                 attribute: .centerY,
                                                                 multiplier: 1,
                                                                 constant: 0)
-        self.view.addConstraint(titleLabelVerticalCenterConstraint!)
+        titleLabelVerticalCenterConstraint?.isActive = true
         gradientView.alpha = 0.0
         rulesButton.alpha = 0.0
         startButton.alpha = 0.0
@@ -60,8 +56,8 @@ class WelcomeViewController : UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.view.removeConstraint(self.titleLabelVerticalCenterConstraint!)
-        self.view.addConstraint(self.titleLabelTopConstraint!)
+        self.titleLabelVerticalCenterConstraint?.isActive = false
+        self.titleLabelTopConstraint?.isActive = true
         UIView.animate(withDuration: 0.8, delay: 0.8, options: .curveEaseInOut, animations: {
             self.gradientView.alpha = 1.0
             self.rulesButton.alpha = 1.0

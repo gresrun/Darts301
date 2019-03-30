@@ -33,13 +33,13 @@ class VictoryViewController : UIViewController, GADInterstitialDelegate {
         let imageUrl = contents[randomIndex]
         if let gif = UIImage.animatedImage(withAnimatedGIFURL: imageUrl) {
             self.celebrateImageView.image = gif
-            self.celebrateImageView.addConstraint(NSLayoutConstraint(item: self.celebrateImageView,
-                                                                     attribute: .width,
-                                                                     relatedBy: .equal,
-                                                                     toItem: self.celebrateImageView,
-                                                                     attribute: .height,
-                                                                     multiplier: gif.size.width / gif.size.height,
-                                                                     constant: 0.0))
+            NSLayoutConstraint(item: self.celebrateImageView!,
+                               attribute: .width,
+                               relatedBy: .equal,
+                               toItem: self.celebrateImageView,
+                               attribute: .height,
+                               multiplier: gif.size.width / gif.size.height,
+                               constant: 0.0).isActive = true
         }
         if !IAPProducts.store.isProductPurchased(IAPProducts.noAds) {
             // Pre-load the post-victory interstitial ad.
